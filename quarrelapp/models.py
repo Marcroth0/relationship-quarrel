@@ -7,6 +7,12 @@ from datetime import timezone
 User = settings.AUTH_USER_MODEL_USER
 
 
+@receiver(pre_save, sender=Post)
+def pre_save_receiver(sender, instance, *args, **kwargs):
+    if not instance.slug:
+        instance.slug = unique_slug_generator(instance)
+
+
 class ContentPost(models.Model):
     user = models.ForeignKey(User)
     content = models.TextField()
