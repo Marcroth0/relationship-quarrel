@@ -82,7 +82,7 @@ class Comment(models.Model):
         return f"Comment {self.body} by {self.name}"
 
 
-@receiver(pre_save, sender=Post)
-def pre_save_receiver(sender, instance, *args, **kwargs):
-    if not instance.slug:
-        instance.slug = unique_slug_generator(instance)
+# @receiver(pre_save, sender=Post)
+# def pre_save_receiver(sender, instance, *args, **kwargs):
+#     if not instance.slug:
+#         instance.slug = unique_slug_generator(instance)
