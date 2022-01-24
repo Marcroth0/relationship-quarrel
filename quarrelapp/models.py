@@ -2,20 +2,19 @@ from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
-from datetime import timezone
 
-User = settings.AUTH_USER_MODEL_USER
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
+from django.utils.text import slugify
 
-
-@receiver(pre_save, sender=Post)
-def pre_save_receiver(sender, instance, *args, **kwargs):
-    if not instance.slug:
-        instance.slug = unique_slug_generator(instance)
+User = settings.AUTH_USER_MODEL
 
 
-class ContentPost(models.Model):
-    user = models.ForeignKey(User)
-    content = models.TextField()
+class Post(models.Model):
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='posts')
+    content_one = models.TextField()
+    content_two = models.TextField()
 
     CLEANING = "CLN"
     JEALOUSY = "JLY"
@@ -25,20 +24,65 @@ class ContentPost(models.Model):
     TITLE_CHOICES = [
         (CLEANING, 'Cleaning'),
         (JEALOUSY, 'Jealousy'),
-        (YOUNEVER, 'You never...'),
+        (YOUNEVER, 'You never'),
         (OTHER, 'Other'),
     ]
     title = models.CharField(
-        max_length=2,
+        max_length=13,
         choices=TITLE_CHOICES,
         default=CLEANING,
     )
-    date_published = models.DateField(default=timezone.now)
+    date_published = models.DateTimeField(auto_now=True)
     url = models.SlugField(max_length=500, unique=True,
                            blank=True, editable=False)
     likes = models.ManyToManyField(
-        User, related_name='content_like', blank=True)
+        User, related_name='content_likes', blank=True)
 
     def save(self, *args, **kwargs):
         self.url = slugify(self.title)
-        super(ContentPost, self).save(*args, **kwargs)
+        super(Post, self).save(*args, **kwargs)
+
+    class Meta:
+        ordering = ["-date_published"]
+
+    def __str__(self):
+        return self.title
+
+    def number_of_likes(self):
+        return self.likes.count()
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(
+        Post, on_delete=models.CASCADE, related_name="comments")
+    name = models.CharField(max_length=80)
+    email = models.EmailField()
+    body = models.TextField()
+
+    CONTENTONE = "CTONE"
+    CONTENTTWO = "CTTWO"
+    UNDECIDED = "UND"
+
+    QUARREL_CHOICES = [
+        (CONTENTONE, 'Left'),
+        (UNDECIDED, 'Undecided'),
+        (CONTENTTWO, 'Right')
+    ]
+    quarrel_choice = models.CharField(
+        max_length=14,
+        choices=QUARREL_CHOICES,
+        default=UNDECIDED,
+    )
+    date_published = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["date_published"]
+
+    def __str__(self):
+        return f"Comment {self.body} by {self.name}"
+
+
+@receiver(pre_save, sender=Post)
+def pre_save_receiver(sender, instance, *args, **kwargs):
+    if not instance.slug:
+        instance.slug = unique_slug_generator(instance)
