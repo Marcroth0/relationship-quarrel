@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'quarrelapp',
+    'posts.apps.PostsConfig',
 ]
 
 MIDDLEWARE = [

@@ -2,12 +2,18 @@ from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+import string
+import random
 
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from django.utils.text import slugify
 
 User = settings.AUTH_USER_MODEL
+
+
+def rand_slug():
+    return ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(6))
 
 
 class Post(models.Model):
@@ -32,6 +38,7 @@ class Post(models.Model):
         choices=TITLE_CHOICES,
         default=CLEANING,
     )
+    slug = models.SlugField(max_length=255, unique=True)
     date_published = models.DateTimeField(auto_now=True)
     url = models.SlugField(max_length=500, unique=True,
                            blank=True, editable=False)
@@ -39,7 +46,8 @@ class Post(models.Model):
         User, related_name='content_likes', blank=True)
 
     def save(self, *args, **kwargs):
-        self.url = slugify(self.title)
+        if not self.slug:
+            self.slug = slugify(rand_slug() + "-" + self.title)
         super(Post, self).save(*args, **kwargs)
 
     class Meta:
