@@ -1,16 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from models import Post
+from django.views import generic
+from .models import Post
 
 
-def detail(request, slug):
-    q = Post.objects.filter(slug__iexact=slug)
-    if q.exists():
-        q = q.first()
-    else:
-        return HttpResponse('<h1>Post Not Found</h1>')
-    context = {
-
-        'post': q
-    }
-    return render(request, 'posts/details.html', context)
+class PostList(generic.ListView):
+    model = Post
+    queryset = Post.objects.order_by("-date_published")
+    template_name = "index.html"
+    paginate_by = 6

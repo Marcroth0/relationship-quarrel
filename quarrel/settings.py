@@ -28,7 +28,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['quarrel2022.herokuapp.com', '127.0.0.1']
 
@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'quarrelapp',
-    'posts.apps.PostsConfig',
 ]
 
 MIDDLEWARE = [
@@ -75,6 +74,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'quarrel.wsgi.application'
 
