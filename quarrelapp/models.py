@@ -40,8 +40,6 @@ class Post(models.Model):
     )
     slug = models.SlugField(max_length=255, unique=True)
     date_published = models.DateTimeField(auto_now=True)
-    url = models.SlugField(max_length=500, unique=True,
-                           blank=True, editable=False)
     likes = models.ManyToManyField(
         User, related_name='content_likes', blank=True)
 

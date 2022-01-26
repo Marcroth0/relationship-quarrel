@@ -1,0 +1,59 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="row border border-success">
+    <div class="col text-center align-middle">
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.user }}</p>
+    </div>
+</div>
+<div class="card-group d-flex align-items-center">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Fighter in the left corner</h5>
+        <p class="card-text">{{ post.content_one }}</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Fighter in the right corner</h5>
+        <p class="card-text">{{ post.content_two }}</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+</div>
+<div class="col-1">
+    {% with comments.count as total_comments %}
+    <strong class="text-secondary"><i class="far fa-comments"></i>
+        {{ total_comments }}</strong>
+    {% endwith %}
+</div>
+<div class="col-1">
+    <strong class="text-secondary"><i class="far fa-heart"></i> {{ post.number_of_likes }} </strong>
+</div>
+
+<!-- Comment Section -->
+<div class="container">
+    <div class="row">
+		<div class="col-md-12">
+		    <div class="blog-comment">
+				<h3 class="text-success">Comments</h3>
+                <hr/>
+                {% for comments in comments %}
+				<ul class="comments">
+				<li class="clearfix">
+				  <div class="post-comments">
+				      <p class="font-weight-bold"> {{ comment.name }}says: </p>
+				      <p>
+                          {{ comment.body | linebreaks }}
+				      </p>
+				  </div>
+				</li>
+				</ul>
+                {% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}

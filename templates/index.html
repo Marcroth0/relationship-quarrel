@@ -2,6 +2,8 @@
 
 {% block content %}
 
+
+
 <div class="jumbotron text-center mb-0">
     <h1 class="display-4">Issues at home?</h1>
     <p class="lead">Since the dawn of the creation of the Internet, it has been, without a doubt*, the best place to ask for solid advice</p>
@@ -12,7 +14,7 @@
     </p>
   </div>
   <div class="row border border-top-2 border-right-2 border-left-2 border-success">
-      <div class="col text-center align-middle">
+      <div class="col-12 text-center align-middle">
           <h2>QUARRELS</h2>
       </div>
   </div>
@@ -20,15 +22,22 @@
 <!-- Post section -->
 <div class="container">
     <div class="row">
-    <div class="card-group col-3">
+      {% for post in post_list %}
+      <div class="col-md-4 mb-3 p-3 shadow bg-lightrounded d-flex">
         <div class="card">
           <img src="..." class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
+            <a href="{% url 'post_detail' post.slug %}" class="post-link">
+              <h2 class="card-title">{{ post.title }}</h2>
+              <p class="card-text">{{ post.excerpt }}</p>
+          </a>
+            <p class="card-text"></p>
+            <p class="card-text"><small class="text-muted">{{ post.date_published }}</small></p>
+            <p class="card-text text-muted h6">{{ post.number_of_likes }}<i class="far fa-heart"></i></p>
+            </div>
+      </div>
+  </div>
+        {% endfor %}
 
 <!-- Pagination -->
     {% if is_paginated %}
