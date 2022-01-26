@@ -35,10 +35,23 @@
             </li>
           </ul>
           <form class="form-inline justify-content-centered">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="button">Post</button>
+            <button class="btn btn-lg btn-outline-success my-2 my-sm-0" type="button">Post</button>
           </form>
         </div>
       </nav>
 </header>
+
+<main class="flex-shrink-0 main-bg">
+    {% block content %}
+    <!-- Content Goes here -->
+    {% endblock content %}
+</main>
+
+<!-- Footer -->
+
+<footer class="footer bg-dark mt-auto">
+    <p>Boilerplate text</p>
+    <p>Boilerplate text two</p>
+</footer>
 </body>
 </html>
