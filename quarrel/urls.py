@@ -18,5 +18,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('quarrelapp.urls'), name='quarrelapp_urls')
+    path('', include('quarrelapp.urls'), name='quarrelapp_urls'),
+    path('accounts/', include('allauth.urls')),
 ]
