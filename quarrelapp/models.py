@@ -16,11 +16,20 @@ def rand_slug():
     return ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(6))
 
 
+class CommentPost(models.Model):
+    content = models.TextField()
+    likes = models.ManyToManyField(
+        User, related_name='likes', blank=True)
+
+
 class Post(models.Model):
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='posts')
-    content_one = models.TextField()
-    content_two = models.TextField()
+    content_one = models.OneToOneField(
+        CommentPost, on_delete=models.CASCADE, related_name="comment_post_one")
+    content_two = models.OneToOneField(
+        CommentPost, on_delete=models.CASCADE, related_name="comment_post_two")
+    description = models.TextField(default='')
 
     CLEANING = "CLN"
     JEALOUSY = "JLY"
