@@ -1,5 +1,6 @@
 from django.shortcuts import render, reverse, get_object_or_404
 from django.http import HttpResponseRedirect
+from django.contrib import messages
 from django.views import generic, View
 from django.contrib.auth.models import User
 from .models import Post
@@ -66,6 +67,21 @@ class PostDetail(View):
 # class UserLike(View):
 
 class UserPost(View):
+    def get(self, request):
+        form = PostForm(request.GET or None)
+        if request.user.is_authenticated:
+            return render(request, "user_post.html",
+                          {
+                              "form": form,
+                          }
+                          )
+        else:
+            messages.add_message(
+                request, messages.ERROR,
+                f"You need to login first, silly."
+            )
+            return HttpResponseRedirect('login/')
+
     def post(self, request):
         form = PostForm(request.POST or None)
 

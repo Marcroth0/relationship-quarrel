@@ -2,7 +2,7 @@
 
 {% block content %}
 <p>Ciao</p>
-<form enctype="multipart/form-data" method="POST" action="">
+<form method="POST" class="mt-5" action="">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Post"/>
