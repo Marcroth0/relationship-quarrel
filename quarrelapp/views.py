@@ -1,7 +1,9 @@
 from django.shortcuts import render, reverse, get_object_or_404
+from django.http import HttpResponseRedirect
 from django.views import generic, View
+from django.contrib.auth.models import User
 from .models import Post
-from .forms import CommentForm
+from .forms import CommentForm, PostForm
 
 
 class PostList(generic.ListView):
@@ -62,3 +64,16 @@ class PostDetail(View):
 
 
 # class UserLike(View):
+
+class UserPost(View):
+    def post(self, request):
+        form = PostForm(request.POST or None)
+
+        if request.method == 'POST':
+            if form.is_valid():
+                form.save()
+            return HttpResponseRedirect('')
+        context = {'form': form,
+                   }
+
+        return render(request, 'user_post.html', context)
