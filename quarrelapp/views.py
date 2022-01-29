@@ -1,5 +1,5 @@
 from django.shortcuts import render, reverse, get_object_or_404
-from django.views import generic, View, HttpResponseRedirect
+from django.views import generic, View
 from .models import Post
 from .forms import CommentForm
 
@@ -61,4 +61,4 @@ class PostDetail(View):
         )
 
 
-class UserLike(View):
+# class UserLike(View):

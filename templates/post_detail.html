@@ -43,6 +43,19 @@
     </div>
   </div>
 </div>
+<div class="container">
+  <div class="row d-flex text-center">
+    <div class="col-sm">
+      <i class="far fa-heart" style="color:blue !important; font-size:30px !important;"></i>
+    </div>
+    <div class="col-sm">
+      <i class="far fa-heart" style="color:grey !important; font-size:30px !important;"></i>
+    </div>
+    <div class="col-sm">
+      <i class="far fa-heart" style="color:red !important; font-size:30px !important;"></i>
+    </div>
+  </div>
+</div>
 
 <div class="col-1">
     {% with comments.count as total_comments %}
@@ -51,7 +64,7 @@
     {% endwith %}
 </div>
 <div class="col-1">
-    <strong class="text-secondary"><i class="far fa-heart"></i> {{ post.number_of_likes }} </strong>
+    <!-- <strong class="text-secondary"><i class="far fa-heart"></i> {{ post.number_of_likes }} </strong> -->
 </div>
 
 
