@@ -80,7 +80,7 @@ class UserPost(View):
                 request, messages.ERROR,
                 f"You need to login first, silly."
             )
-            return HttpResponseRedirect('login/')
+            return HttpResponseRedirect('/')
 
     def post(self, request):
         form = PostForm(request.POST or None)

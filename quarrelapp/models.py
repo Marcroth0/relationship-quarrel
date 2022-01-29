@@ -26,9 +26,9 @@ class Post(models.Model):
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='posts')
     content_one = models.OneToOneField(
-        CommentPost, on_delete=models.CASCADE, related_name="comment_post_one")
+        CommentPost, on_delete=models.CASCADE, related_name="content_post_one")
     content_two = models.OneToOneField(
-        CommentPost, on_delete=models.CASCADE, related_name="comment_post_two")
+        CommentPost, on_delete=models.CASCADE, related_name="content_post_two")
     description = models.TextField(default='')
 
     CLEANING = "CLN"
