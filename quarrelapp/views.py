@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.views import generic, View
 from django.contrib.auth.models import User
-from .models import Post
+from .models import Post, CommentPost
 from .forms import CommentForm, PostForm
 
 
@@ -93,10 +93,10 @@ class UserPost(View):
                 c_two = request.POST["content_two"]
 
                 post.content_one = CommentPost.objects.create(content=c_one)
-                post.content_one = CommentPost.objects.create(content=c_two)
+                post.content_two = CommentPost.objects.create(content=c_two)
                 post.user = request.user
 
                 post.save()
-            return HttpResponseRedirect('')
+            return HttpResponseRedirect('/')
         context = {'form': form,
                    }
