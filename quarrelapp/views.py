@@ -81,7 +81,7 @@ class UserPost(View):
                 request, messages.ERROR,
                 f"You need to login first, silly."
             )
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect('/accounts/login')
 
     def post(self, request):
         form = PostForm(request.POST or None)
@@ -97,6 +97,6 @@ class UserPost(View):
                 post.user = request.user
 
                 post.save()
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect('home')
         context = {'form': form,
                    }
