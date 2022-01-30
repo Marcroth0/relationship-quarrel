@@ -7,7 +7,10 @@ from crispy_forms.layout import (Field, Layout, Row, Column, Submit)
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('content_one', 'content_two', 'title', 'description')
+        fields = ('title', 'description')
+
+    content_one = forms.CharField(max_length=200)
+    content_two = forms.CharField(max_length=200)
 
 
 class CommentForm(forms.ModelForm):

@@ -88,14 +88,15 @@ class UserPost(View):
 
         if request.method == 'POST':
             if form.is_valid():
-                form.save()
+                post = form.save(commit=False)
+                c_one = request.POST["content_one"]
+                c_two = request.POST["content_two"]
+
+                post.content_one = CommentPost.objects.create(content=c_one)
+                post.content_one = CommentPost.objects.create(content=c_two)
+                post.user = request.user
+
+                post.save()
             return HttpResponseRedirect('')
         context = {'form': form,
                    }
-
-        return render(request, "user_post.html",
-                      {
-                          "form": form,
-                          "post_form": PostForm()
-                      }
-                      )
