@@ -73,6 +73,7 @@ class UserPost(View):
             return render(request, "user_post.html",
                           {
                               "form": form,
+                              "post_form": PostForm()
                           }
                           )
         else:
@@ -92,4 +93,9 @@ class UserPost(View):
         context = {'form': form,
                    }
 
-        return render(request, 'user_post.html', context)
+        return render(request, "user_post.html",
+                      {
+                          "form": form,
+                          "post_form": PostForm()
+                      }
+                      )

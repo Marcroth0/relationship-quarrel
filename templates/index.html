@@ -4,26 +4,26 @@
 
 
 
-<div class="jumbotron text-center mb-0 mt-2">
-    <h1 class="display-4">Issues at home?</h1>
+<div class="jumbotron bg-light border shadow text-center mb-0 mt-2">
+    <h1 class="display-3"><strong>Issues at home?</strong></h1>
     <p class="lead">Since the dawn of the creation of the Internet, it has been, without a doubt*, the best place to ask for solid advice</p>
     <hr class="my-4">
-    <p>Is someone not doing the dishes? Cleaning? An argument unsolved? Instead of practicing your communication skills...</p>
+    <p><em>Is someone not doing the dishes? Cleaning? An argument unsolved? Instead of practicing your communication skills...</em></p>
     <p class="lead">
-      <a class="btn btn-primary bg-success btn-lg" href="{% url 'user_post' %}" role="button" aria-label="Post">Ask The Internet</a>
+      <a class="btn btn-custom btn-lg text-white" href="{% url 'user_post' %}" role="button" aria-label="Post">Ask The Internet &raquo;</a>
     </p>
   </div>
-  <div class="row border border-top-2 border-right-2 border-left-2 border-success">
-      <div class="col-12 text-center align-middle">
+  <div class="row border-top-2 border-right-2 border-left-2 shadow-sm mb-1">
+      <div class="col-12 background-tryout text-center align-middle">
           <h2>QUARRELS</h2>
       </div>
   </div>
 
 <!-- Post section -->
 <div class="container">
-    <div class="row">
+    <div class="row mb-5">
       {% for post in post_list %}
-      <div class="col-md-4 mb-3 p-3 shadow bg-lightrounded d-flex">
+      <div class="col-md-4 mb-3 p-3 shadow d-flex">
         <div class="card">
           <img src="..." class="card-img-top" alt="...">
           <div class="card-body">
