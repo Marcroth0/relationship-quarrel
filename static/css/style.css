@@ -51,3 +51,7 @@
 .border.title-custom > div {
     background: #fff;
 }
+
+.navbar-brand {
+    font-family: "Mochiy Pop P One", sans-serif;
+}
