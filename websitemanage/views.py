@@ -1,11 +1,27 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from django.contrib.auth import logout
-from django.shortcuts import redirect, render
+from django.contrib.auth.models import User
+from django.shortcuts import redirect, render, get_object_or_404
 from django.urls import reverse
 from django.views.generic import View
+from models import Post
 
 from .forms import UserDeactivateForm, UserDeleteForm
+
+
+def profile(request, pk=None):
+    """
+    
+    """
+    if pk:
+        post_creator = get_object_or_404(User, pk=pk)
+        user_posts = Post.objects.filter(user=request.user)
+
+    else:
+        post_creator = request.user
+        user_posts = Post.objects.filter(user=request.user)
+    return render(request, 'profile.html', {'post_creator': post_creator, 'user_posts': user_posts})
 
 
 class UserDeactivateView(LoginRequiredMixin, View):
