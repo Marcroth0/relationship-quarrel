@@ -2,17 +2,22 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from django.contrib.auth import logout
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render, get_object_or_404
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.views.generic import View
+from django.views.generic.edit import UpdateView, DeleteView
+from django.http import HttpResponseRedirect
+
 from quarrelapp.models import Post
 
 from .forms import UserDeactivateForm, UserDeleteForm
 
 
+@login_required
 def profile(request, pk=None):
     """
-    
+
     """
     if pk:
         post_creator = get_object_or_404(User, pk=pk)
@@ -72,3 +77,21 @@ class UserDeleteView(LoginRequiredMixin, View):
             messages.success(request, 'Account successfully deleted')
             return redirect(reverse('home'))
         return render(request, 'delete_user.html', {'form': form})
+
+
+class PostEditView(UpdateView):
+    model = Post
+    fields = ['body']
+    template_name = 'social/post_edit.html'
+
+    def get_success_url(self):
+        pk = self.kwargs['pk']
+        return reverse_lazy('profile.html', kwargs={'pk': pk})
+
+
+@login_required
+class PostDeleteView(DeleteView):
+    def delete_post(request, slug=None):
+        post_to_delete = Post.objects.get(slug=slug)
+        post_to_delete.delete()
+        return HttpResponseRedirect(reverse('profile'))

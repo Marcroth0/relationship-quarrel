@@ -90,11 +90,13 @@ class UserPost(View):
                 c_one = request.POST["content_one"]
                 c_two = request.POST["content_two"]
 
-                post.content_one = CommentPost.objects.create(content=c_one)
-                post.content_two = CommentPost.objects.create(content=c_two)
+                post.content_one = CommentPost.objects.create(
+                    content=c_one)
+                post.content_two = CommentPost.objects.create(
+                    content=c_two)
                 post.user = request.user
 
                 post.save()
-            return HttpResponseRedirect('home')
+            return HttpResponseRedirect('/')
         context = {'form': form,
                    }
