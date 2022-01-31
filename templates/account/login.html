@@ -1,59 +1,33 @@
-{% extends "base.html" %} {% load i18n %} {% block head_title %}{% trans "Sign
-In" %}{% endblock %} {% block content %}
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
 <container>
-    <div class="row d-flex justify-content-center text-center">
-        <div class="col-md-6">
-            <h1 class="display-3">{% trans "Sign In" %}</h1>
-
-            <p>
-                {% blocktrans %}If you have not created an account yet, then
-                please <a href="{{ signup_url }}">sign up</a> first.{%
-                endblocktrans %}
-            </p>
-            <hr />
-
-            <container>
-                <div class="row d-flex justify-content-center text-center">
-                    <div class="col-md-5">
-                        <form
-                            class="login"
-                            method="POST"
-                            action="{% url 'account_login' %}"
-                        >
-                            {% csrf_token %} {{ form.as_p }} {% if
-                            redirect_field_value %}
-                            <input
-                                type="hidden"
-                                name="{{ redirect_field_name }}"
-                                value="{{ redirect_field_value }}"
-                            />
-                            {% endif %}
-                            <a
-                                class="
-                                    button
-                                    btn btn-custom
-                                    secondaryAction
-                                    text-white
-                                "
-                                href="{% url 'account_reset_password' %}"
-                                >{% trans "Forgot Password?" %}</a
-                            >
-                            <button
-                                class="
-                                    primaryAction
-                                    btn btn-custom
-                                    text-white
-                                    m-3
-                                "
-                                type="submit"
-                            >
-                                {% trans "Sign In" %} &raquo;
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </container>
-            {% endblock %}
-        </div>
-    </div>
+  <div class="row d-flex justify-content-center text-center">
+    <div class="col-md-6">
+      <h1 class="display-3">{% trans "Sign In" %}</h1>
+      <p>{% blocktrans %}If you have not created an account yet, then please
+      <a href="{{ signup_url }}">Sign up</a> first.{% endblocktrans %}</p>
+      <hr>
+  </div>
+</div>
 </container>
+  <div class="row d-flex justify-content-center text-center">
+    <div class="col-md-5">
+    <form class="login" method="POST" action="{% url 'account_login' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      {% if redirect_field_value %}
+      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+      {% endif %}
+      <a class="button btn btn-custom secondaryAction text-white" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+      <button class="primaryAction btn btn-custom text-white m-3" type="submit">{% trans "Sign In" %} &raquo;</button>
+    </form>
+  </div>
+</div>
+</container>
+{% endblock %}
