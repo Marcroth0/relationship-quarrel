@@ -64,8 +64,6 @@ class PostDetail(View):
         )
 
 
-# class UserLike(View):
-
 class UserPost(View):
     def get(self, request):
         form = PostForm(request.GET or None)

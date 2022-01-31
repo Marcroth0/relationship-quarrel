@@ -21,5 +21,6 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('quarrelapp.urls'), name='quarrelapp_urls'),
+    path('', include('websitemanage.urls'), name='websitemanage_urls'),
     path('accounts/', include('allauth.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
