@@ -1,12 +1,33 @@
-{% extends 'base.html' %}
-{% load i18n %}
-{% block content %}
+{% extends 'base.html' %} {% load i18n %} {% block content %}
 
-
-<form action="." method="POST" class="padding">
-    {% csrf_token %}
-    {{ user_form.as_p}}
-    <button class="btn btn-primary" type="submit" name="action">{% trans "Confirm" %}</button>
-</form>
+<container>
+    <div class="row d-flex justify-content-center text-center">
+        <div class="col-md-6">
+            <h1 class="display-4">
+                <strong>Deactivation-for-a-<em>Vacation!</em></strong>
+            </h1>
+            <hr />
+            <p>
+                <em
+                    >We'll just consider this a "See you
+                    later"-type-of-situation</em
+                >
+            </p>
+            <form
+                action="{% url 'deactivate_user' %}"
+                method="POST"
+                class="padding"
+            >
+                {% csrf_token %} {{ form.as_p}}
+                <button
+                    class="btn btn-primary btn-custom text-white"
+                    type="submit"
+                    name="action"
+                >
+                    {% trans "Confirm" %} &laquo
+                </button>
+            </form>
+        </div>
+    </div>
+</container>
 {% endblock %}
-

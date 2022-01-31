@@ -1,5 +1,39 @@
-<form action="." method="POST" class="padding">
-    {% csrf_token %}
-    {{ user_form.as_p}}
-    <button class="btn btn-primary" type="submit" name="action">{% trans "Confirm" %}</button>
-</form>
+{% extends 'base.html' %} {% load i18n %} {% block content %}
+
+<container>
+    <div class="row d-flex justify-content-center text-center">
+        <div class="col-md-6">
+            <h1 class="display-4">
+                <strong>Deletion...<br /><em>Completion?</em></strong>
+            </h1>
+            <hr />
+            <p>
+                <em
+                    >This is like that scene in Lord of the Rings when Frodo
+                    goes all "Shoo, Sam, shoo!" and Sam actually leaves(?)</em
+                >
+            </p>
+            <p>
+                <em
+                    >But that Po-Tay-To lover sure came back in the end. Maybe
+                    <strong>you will, too.</strong></em
+                >
+            </p>
+            <form
+                action="{% url 'delete_user' %}"
+                method="POST"
+                class="padding"
+            >
+                {% csrf_token %} {{ form.as_p}}
+                <button
+                    class="btn btn-primary btn-custom text-white"
+                    type="submit"
+                    name="action"
+                >
+                    {% trans "Confirm" %} &laquo
+                </button>
+            </form>
+        </div>
+    </div>
+</container>
+{% endblock %}

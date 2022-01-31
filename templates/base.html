@@ -33,7 +33,7 @@
         </button>
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
+          <ul class="navbar-nav mr-auto pl-3">
             <li class="nav-item active ">
               <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
@@ -42,9 +42,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'deactivate_user' %}">Deactivate</a>
-              </li>
                 {% else %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
@@ -54,9 +51,23 @@
           </li>
           {% endif %}
           </ul>
+          {% if user.is_authenticated %}
+          <div class="dropdown dropleft">
+            <a class="btn btn-custom text-white dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+              Account
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="#">My Posts</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{% url 'deactivate_user' %}">Deactivate Account</a>
+              <a class="dropdown-item" href="{% url 'delete_user' %}">Delete Account</a>
+            </div>
+          </div>
+          {% else %}
           <form class="form-inline justify-content-centered">
             <button class="btn btn-lg btn-custom my-2 my-sm-0 text-white" type="button">Post</button>
           </form>
+          {% endif %}
         </div>
       </nav>
 </header>
