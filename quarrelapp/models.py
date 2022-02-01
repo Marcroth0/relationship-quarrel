@@ -34,10 +34,10 @@ class Post(models.Model):
         CommentPost, on_delete=models.CASCADE, related_name="content_post_two")
     description = models.TextField(default='')
 
-    CLEANING = "CLEANING"
-    JEALOUSY = "CLEANING"
-    YOUNEVER = "YOUNEVER"
-    OTHER = "OTHER"
+    CLEANING = "CLN"
+    JEALOUSY = "JLY"
+    YOUNEVER = "YNR"
+    OTHER = "OTH"
 
     TITLE_CHOICES = [
         (CLEANING, 'Cleaning'),
