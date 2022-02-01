@@ -23,6 +23,12 @@
   font-family: "Mochiy Pop P One", sans-serif;
 }
 
+.gradient-text {
+  background: -webkit-linear-gradient(-60deg, #a83279, #d38312);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .footer.footer-custom {
   background-image: linear-gradient(-90deg, #a83279, #d38312);
 }
