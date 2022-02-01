@@ -56,6 +56,20 @@
         </div>
       </div>
     </div>
+    {% empty %}
+    <div class="text-center d-flex justify-content-center flex-column">
+      <h1 class="display-3">Sorry, you have no posts. What are you, a drama-free person?</h1>
+      <h3><em>Get yourself out there, turn every stone, rattle some feathers, and find some!</em></h3>
+      <hr />
+      <p class="lead">
+        <a class="btn btn-custom btn-lg text-white mt-4" href="{% url 'user_post' %}" role="button" aria-label="Post"
+          >Ask The Internet &raquo;</a
+        >
+      </p>
+      <br />
+      <hr />
+      <p><em>I believe in you.</em></p>
+    </div>
     {% endfor %}
 
     <!-- Pagination -->

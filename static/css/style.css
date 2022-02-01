@@ -1,57 +1,62 @@
 @font-face {
-    font-family: "Mochiy Pop P One", sans-serif;
-    src: url("webfont.eot"); /* IE9 Compat Modes */
-    src: url("webfont.eot?#iefix") format("embedded-opentype"),
-        /* IE6-IE8 */ url("webfont.woff2") format("woff2"),
-        /* Super Modern Browsers */ url("webfont.woff") format("woff"),
-        /* Pretty Modern Browsers */ url("webfont.ttf") format("truetype"),
-        /* Safari, Android, iOS */ url("webfont.svg#svgFontName") format("svg"); /* Legacy iOS */
+  font-family: "Mochiy Pop P One", sans-serif;
+  src: url("webfont.eot"); /* IE9 Compat Modes */
+  src: url("webfont.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */ url("webfont.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("webfont.woff") format("woff"),
+    /* Pretty Modern Browsers */ url("webfont.ttf") format("truetype"),
+    /* Safari, Android, iOS */ url("webfont.svg#svgFontName") format("svg"); /* Legacy iOS */
 }
 * {
-    margin: 0px;
-    padding: 0px;
+  margin: 0px;
+  padding: 0px;
 }
 
 .navbar.navbar-try {
-    background-image: linear-gradient(-90deg, #d38312, #a83279);
+  background-image: linear-gradient(-90deg, #d38312, #a83279);
 }
 
 .col-12.background-tryout {
-    background-image: linear-gradient(-90deg, #d38312, #a83279);
-    color: white;
-    border-radius: 3px;
-    margin-top: 10px;
-    font-family: "Mochiy Pop P One", sans-serif;
+  background-image: linear-gradient(-90deg, #d38312, #a83279);
+  color: white;
+  border-radius: 3px;
+  margin-top: 10px;
+  font-family: "Mochiy Pop P One", sans-serif;
 }
 
 .footer.footer-custom {
-    background-image: linear-gradient(-90deg, #a83279, #d38312);
+  background-image: linear-gradient(-90deg, #a83279, #d38312);
 }
 
 .btn.btn-custom {
-    background-color: #b43782;
+  background-color: #b43782;
 }
 
 .border.title-custom {
-    background-image: -webkit-gradient(
-        linear,
-        left bottom,
-        left top,
-        color-stop(0.33, #a83279),
-        color-stop(0.67, #d38312)
-    );
-    background-image: -moz-linear-gradient(
-        center bottom,
-        #a83279 33%,
-        #d38312 67%
-    );
-    padding: 2px;
+  background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.33, #a83279),
+    color-stop(0.67, #d38312)
+  );
+  background-image: -moz-linear-gradient(center bottom, #a83279 33%, #d38312 67%);
+  padding: 2px;
 }
 
 .border.title-custom > div {
-    background: #fff;
+  background: #fff;
 }
 
 .navbar-brand {
-    font-family: "Mochiy Pop P One", sans-serif;
+  font-family: "Mochiy Pop P One", sans-serif;
+}
+
+.heart-custom-purple {
+  color: #a83279;
+  font-size: 1.9em;
+  text-shadow: 1px 1px 1px #ccc;
+}
+
+.heart-custom-purple:focus {
+  outline: none;
 }

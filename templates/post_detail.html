@@ -48,16 +48,16 @@
       <form class="d-inline" action="{% url 'post_like' post.slug post.content_one.id %}" method="POST">
         {% csrf_token %} {% if liked_one %}
         <button type="submit" name="blogpost_id" value="{{ post.slug }}" class="btn-like">
-          <i class="fas fa-heart"></i>
+          <i class="fas fa-heart heart-custom-purple"></i>
         </button>
         {% else %}
         <button type="submit" name="blogpost_id" value="{{ post.slug }}" class="btn-like">
-          <i class="far fa-heart"></i>
+          <i class="far fa-heart heart-custom-purple"></i>
         </button>
         {% endif %}
       </form>
       {% else %}
-      <span class="text-secondary"><i class="far fa-heart"></i></span>
+      <span class="text-secondary"><i class="far fa-heart heart-custom-purple"></i></span>
       {% endif %}
       <span class="text-secondary"> {{ post.content_one.number_of_likes }} </span>
     </div>
