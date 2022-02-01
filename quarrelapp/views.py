@@ -126,3 +126,26 @@ class PostLike(View):
             if post.content_one.likes.filter(id=request.user.id).exists():
                 post.content_one.likes.remove(request.user)
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
+class PostEdit(View):
+    def edit_post(request, slug):
+        post = Post.objects.get(slug=slug)
+        if request.method != 'POST':
+            form = PostForm(instance=post)
+        else:
+            form = PostForm(instance=post, data=request.POST)
+            if form.is_valid():
+                post = form.save(commit=False)
+                c_one = request.POST["content_one"]
+                c_two = request.POST["content_two"]
+
+                CommentPost.objects.filter(
+                    id=post.content_one.id).update(content=c_one)
+                CommentPost.objects.filter(
+                    id=post.content_two.id).update(content=c_two)
+                form.save()
+                return HttpResponseRedirect(reverse('profile'))
+
+        context = {'post': post, 'form': form}
+        return render(request, 'edit_post.html', context)

@@ -79,16 +79,6 @@ class UserDeleteView(LoginRequiredMixin, View):
         return render(request, 'delete_user.html', {'form': form})
 
 
-class PostEditView(UpdateView):
-    model = Post
-    fields = ['body']
-    template_name = 'social/post_edit.html'
-
-    def get_success_url(self):
-        pk = self.kwargs['pk']
-        return reverse_lazy('profile.html', kwargs={'pk': pk})
-
-
 @login_required
 class PostDeleteView(DeleteView):
     def delete_post(request, slug=None):

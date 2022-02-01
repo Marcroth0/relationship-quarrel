@@ -3,22 +3,18 @@
 <div class="jumbotron bg-light border shadow text-center mb-0 mt-2">
   <h1 class="display-3"><strong>Issues at home?</strong></h1>
   <p class="lead">
-    Since the dawn of the creation of the Internet, it has been, without a
-    doubt*, the best place to ask for solid advice
+    Since the dawn of the creation of the Internet, it has been, without a doubt*, the best place to ask for solid
+    advice
   </p>
   <hr class="my-4" />
   <p>
     <em
-      >Is someone not doing the dishes? Cleaning? An argument unsolved? Instead
-      of practicing your communication skills...</em
+      >Is someone not doing the dishes? Cleaning? An argument unsolved? Instead of practicing your communication
+      skills...</em
     >
   </p>
   <p class="lead">
-    <a
-      class="btn btn-custom btn-lg text-white"
-      href="{% url 'user_post' %}"
-      role="button"
-      aria-label="Post"
+    <a class="btn btn-custom btn-lg text-white" href="{% url 'user_post' %}" role="button" aria-label="Post"
       >Ask The Internet &raquo;</a
     >
   </p>
@@ -32,39 +28,25 @@
 <div class="container mx-auto mt-4 d-flex justify-content-center text-center">
   <div class="row">
     {% for post in post_list %}
-    <div
-      class="col-md-4 mt-2 col-sm-12 justify-content-center border title-custom"
-    >
+    <div class="col-md-4 mt-2 col-sm-12 justify-content-center border title-custom">
       <div class="card">
-        <img
-          src="https://i.imgur.com/ZTkt4I5.jpg"
-          class="card-img-top"
-          alt="..."
-        />
+        <img src="https://i.imgur.com/ZTkt4I5.jpg" class="card-img-top" alt="..." />
         <div class="card-body">
           <a href="{% url 'post_detail' post.slug %}" class="post-link">
             <h5 class="card-title link-dark">{{ post.title }}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">
-              {{ post.date_published}}
-            </h6>
+            <h6 class="card-subtitle mb-2 text-muted">{{ post.date_published}}</h6>
           </a>
           <hr />
 
           <p class="card-text">{{ post.description }}</p>
           <div class="row d-flex text-center">
             <div class="col-sm">
-              <i
-                class="far fa-heart"
-                style="color: blue !important; font-size: 30px !important"
-              ></i>
-              <p>Likes</p>
+              <span class="text-secondary"><i class="fas fa-heart heart-custom-purple"></i></span>
+              <span class="text-secondary"> {{ post.content_one.number_of_likes }} </span>
             </div>
             <div class="col-sm">
-              <i
-                class="far fa-heart"
-                style="color: red !important; font-size: 30px !important"
-              ></i>
-              <p>Likes</p>
+              <span class="text-secondary"><i class="fas fa-heart heart-custom-orange"></i></span>
+              <span class="text-secondary"> {{ post.content_two.number_of_likes }} </span>
             </div>
           </div>
         </div>
@@ -99,15 +81,11 @@
     <ul class="pagination justify-content-center">
       {% if page_obj.has_previous %}
       <li>
-        <a href="?page={{ page_obj.previous_page_number }}" class="page-link"
-          >&laquo; PREV
-        </a>
+        <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a>
       </li>
       {% endif %} {% if page_obj.has_next %}
       <li>
-        <a href="?page={{ page_obj.next_page_number }}" class="page-link">
-          NEXT &raquo;</a
-        >
+        <a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a>
       </li>
 
       {% endif %}

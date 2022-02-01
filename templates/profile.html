@@ -15,13 +15,17 @@
           <p class="card-text">{{ post.description }}</p>
           <div class="row d-flex text-center">
             <div class="col-sm">
-              <i class="far fa-heart" style="color: blue !important; font-size: 30px !important"></i>
-              <p>Likes</p>
+      <span class="text-secondary"><i class="fas fa-heart heart-custom-purple"></i></span>
+      <span class="text-secondary"> {{ post.content_one.number_of_likes }} </span>
             </div>
             <div class="col-sm">
-              <i class="far fa-heart" style="color: red !important; font-size: 30px !important"></i>
-              <p>Likes</p>
+      <span class="text-secondary"><i class="fas fa-heart heart-custom-orange"></i></span>
+      <span class="text-secondary"> {{ post.content_two.number_of_likes }} </span>
             </div>
+          </div>
+          <div class="row">
+            {% if request.user == post.user %}
+                <a href="{% url 'edit_post' post.slug %}" style="color: #333;"><i class="far fa-edit"></i></a>
           </div>
           <button
             type="button"
@@ -56,6 +60,7 @@
         </div>
       </div>
     </div>
+    {% endif %}
     {% empty %}
     <div class="text-center d-flex justify-content-center flex-column">
       <h1 class="display-3">Sorry, you have no posts. What are you, a <span class="gradient-text">drama-free</span> person?</h1>

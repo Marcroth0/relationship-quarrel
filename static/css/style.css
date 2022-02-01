@@ -63,6 +63,13 @@
   text-shadow: 1px 1px 1px #ccc;
 }
 
+.heart-custom-orange {
+  color: #d38312;
+  font-size: 1.9em;
+  text-shadow: 1px 1px 1px #ccc;
+}
+
 .heart-custom-purple:focus {
   outline: none;
+  border: white;
 }
