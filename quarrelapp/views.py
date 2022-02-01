@@ -18,9 +18,12 @@ class PostDetail(View):
     def get(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug)
         comments = post.comments.order_by('date_published')
-        liked = False
-        if post.likes.filter(id=self.request.user.id).exists():
-            liked = True
+        liked_one = False
+        liked_two = False
+        if post.content_one.likes.filter(id=self.request.user.id).exists():
+            liked_one = True
+        if post.content_two.likes.filter(id=self.request.user.id).exists():
+            liked_two = True
 
         return render(
             request,
@@ -28,7 +31,8 @@ class PostDetail(View):
             {
                 "post": post,
                 "comments": comments,
-                "liked": liked,
+                "liked_one": liked_one,
+                "liked_two": liked_two,
                 "comment_form": CommentForm()
             }
         )
@@ -100,3 +104,25 @@ class UserPost(View):
             return HttpResponseRedirect('/')
         context = {'form': form,
                    }
+
+
+class PostLike(View):
+    def post(self, request, slug, id):
+        post = get_object_or_404(Post, slug=slug)
+
+        if post.content_one.id == id:
+            if post.content_one.likes.filter(id=request.user.id).exists():
+                post.content_one.likes.remove(request.user)
+            else:
+                post.content_one.likes.add(request.user)
+            if post.content_two.likes.filter(id=request.user.id).exists():
+                post.content_two.likes.remove(request.user)
+
+        if post.content_two.id == id:
+            if post.content_two.likes.filter(id=request.user.id).exists():
+                post.content_two.likes.remove(request.user)
+            else:
+                post.content_two.likes.add(request.user)
+            if post.content_one.likes.filter(id=request.user.id).exists():
+                post.content_one.likes.remove(request.user)
+        return HttpResponseRedirect(reverse('post_detail', args=[slug]))

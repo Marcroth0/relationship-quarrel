@@ -44,6 +44,9 @@
         <div class="card-body">
           <a href="{% url 'post_detail' post.slug %}" class="post-link">
             <h5 class="card-title link-dark">{{ post.title }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">
+              {{ post.date_published}}
+            </h6>
           </a>
           <hr />
 

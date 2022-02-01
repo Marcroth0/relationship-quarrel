@@ -21,6 +21,9 @@ class CommentPost(models.Model):
     likes = models.ManyToManyField(
         User, related_name='likes', blank=True)
 
+    def number_of_likes(self):
+        return self.likes.count()
+
 
 class Post(models.Model):
     user = models.ForeignKey(
