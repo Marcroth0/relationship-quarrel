@@ -75,7 +75,7 @@ class Comment(models.Model):
         Post, on_delete=models.CASCADE, related_name="comments")
     name = models.CharField(max_length=80)
     email = models.EmailField()
-    body = models.TextField()
+    body = models.TextField(max_length=120)
 
     CONTENTONE = "CTONE"
     CONTENTTWO = "CTTWO"
@@ -98,9 +98,3 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment {self.body} by {self.name}"
-
-
-# @receiver(pre_save, sender=Post)
-# def pre_save_receiver(sender, instance, *args, **kwargs):
-#     if not instance.slug:
-#         instance.slug = unique_slug_generator(instance)

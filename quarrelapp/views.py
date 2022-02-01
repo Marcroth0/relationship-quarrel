@@ -2,8 +2,9 @@ from django.shortcuts import render, reverse, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.views import generic, View
+from django.conf import settings
 from django.contrib.auth.models import User
-from .models import Post, CommentPost
+from .models import Post, CommentPost, Comment
 from .forms import CommentForm, PostForm
 
 
@@ -66,6 +67,22 @@ class PostDetail(View):
                 "comment_form": CommentForm()
             }
         )
+
+    def delete_own_comment(request, id=None):
+        comment = get_object_or_404(Comment, id=id)
+        if comment.name == request.user.username and request.user.is_authenticated:
+            comment.delete()
+            messages.add_message(
+                request, messages.SUCCESS,
+                f"Congratulations, your tracks are hidden"
+            )
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+            # return HttpResponseRedirect(reverse(''))
+        else:
+            messages.add_message(
+                request, messages.ERROR,
+                f"An error occurred"
+            )
 
 
 class UserPost(View):
