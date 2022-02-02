@@ -9,8 +9,8 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = ('title', 'description')
 
-    content_one = forms.CharField(max_length=200)
-    content_two = forms.CharField(max_length=200)
+    content_one = forms.CharField(max_length=500)
+    content_two = forms.CharField(max_length=500)
 
 
 class CommentForm(forms.ModelForm):

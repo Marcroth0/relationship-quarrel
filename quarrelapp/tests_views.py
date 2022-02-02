@@ -2,6 +2,7 @@ from django.test import TestCase, Client
 from django.urls import reverse
 from quarrelapp.models import CommentPost, Post, Comment
 from django.contrib.auth.models import User
+from django.shortcuts import get_object_or_404
 
 
 class TestQuarrelViews(TestCase):
@@ -25,4 +26,9 @@ class TestQuarrelViews(TestCase):
         self.assertEqual(post.description, 'A description')
         self.assertEqual(post.content_one.content, 'Whatever')
 
-    def test_like_function(self):
+    # def test_like_function(self, request):
+    #     post = get_object_or_404(Post)
+    #     content_one = post.content_one.likes.add(request.user)
+
+    #     self.assertTrue(content_one.likes.filter(
+    #         id=request.user.id).exists())
