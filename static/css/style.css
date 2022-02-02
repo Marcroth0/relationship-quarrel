@@ -81,3 +81,7 @@
   outline: none;
   border: white;
 }
+
+.card-height {
+  height: 100%;
+}

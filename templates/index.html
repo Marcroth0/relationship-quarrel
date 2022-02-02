@@ -29,7 +29,7 @@
   <div class="row">
     {% for post in post_list %}
     <div class="col-md-4 mt-2 col-sm-12 justify-content-center border title-custom">
-      <div class="card">
+      <div class="card card-height">
         <img src="https://i.imgur.com/ZTkt4I5.jpg" class="card-img-top" alt="..." />
         <div class="card-body">
           <a href="{% url 'post_detail' post.slug %}" class="post-link">
@@ -39,7 +39,7 @@
           <hr />
 
           <p class="card-text">{{ post.description }}</p>
-          <div class="row d-flex text-center">
+          <div class="row d-flex text-center align-text-bottom">
             <div class="col-sm">
               <span class="text-secondary"><i class="fas fa-heart heart-custom-purple"></i></span>
               <span class="text-secondary"> {{ post.content_one.number_of_likes }} </span>
