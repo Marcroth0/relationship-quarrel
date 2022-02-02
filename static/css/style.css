@@ -1,5 +1,5 @@
 @font-face {
-  font-family: "Mochiy Pop P One", sans-serif;
+  font-family: "Mochiy Pop P One", Montserrat;
   src: url("webfont.eot"); /* IE9 Compat Modes */
   src: url("webfont.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */ url("webfont.woff2") format("woff2"),
     /* Super Modern Browsers */ url("webfont.woff") format("woff"),
@@ -20,7 +20,11 @@
   color: white;
   border-radius: 3px;
   margin-top: 10px;
-  font-family: "Mochiy Pop P One", sans-serif;
+  font-family: "Mochiy Pop P One", Montserrat;
+}
+
+.montserrat {
+  font-family: "Montserrat", sans-serif;
 }
 
 .gradient-text {
@@ -61,6 +65,10 @@
   color: #a83279;
   font-size: 1.9em;
   text-shadow: 1px 1px 1px #ccc;
+}
+
+.icon-size {
+  font-size: 1.9em;
 }
 
 .heart-custom-orange {
