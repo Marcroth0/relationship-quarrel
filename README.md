@@ -62,15 +62,17 @@ Quarrel is a platform where arguments are come to an end. Two people face off in
 
 ## Strategy
 
-Memory is a classic game consisting of flipping two cards until you get a match. The game goes along until every card has been matched. This time with a theme of famous european landmarks.
-
 ## Design
 
 ### Planning
 
-I wireframed it using Balsamiq. Considering it was a one-page game it didn't require a lot of planning besides the outline viewed below.
+I wireframed it using Balsamiq:
 
-![wireframe](assets/images/readme-planning.png)
+![wireframe](media/images/readme-images/readme-landing-page-mobile.png)
+
+![wireframe](media/images/readme-images/readme-landing-page-mobile.png)
+
+![wireframe](media/images/readme-images/readme-post-detail-page.png)
 
 The only thing that strayed from the initial wireframe was the addition of the two themes.
 
@@ -131,49 +133,7 @@ No known bugs.
 
 ## Improvements
 
-The below code, as commented in the js-file, could be shortened to a common "changeTheme" function instead.
-
-```
-// Change the background and border for the images if user chooses light theme
-function dayTime() {
-let imgs = document.getElementsByTagName("img");
-let btns = document.getElementsByClassName("btn");
-for (let i = 0; i < imgs.length; i++) {
-if (imgs[i].getAttribute("src") == "assets/images/grid-img.png") {
-imgs[i].setAttribute("src", "assets/images/day-time-grid.jpg");
-}
-imgs[i].style.borderColor = "#eaddcb";
-}
-document.body.style.backgroundImage = "url('assets/images/day-time.jpg')";
-for (let i = 0; i < btns.length; i++) {
-btns[i].style.backgroundColor = "#caa865";
-}
-theme = "day-time-grid.jpg";
-}
-
-// Redundant? Could be done in a single "changeTheme" function
-function nightTime() {
-let imgs = document.getElementsByTagName("img");
-let btns = document.getElementsByClassName("btn");
-for (let i = 0; i < imgs.length; i++) {
-// Continue the game when you change between themes
-if (imgs[i].getAttribute("src") == "assets/images/day-time-grid.jpg") {
-imgs[i].setAttribute("src", "assets/images/grid-img.png");
-}
-imgs[i].style.borderColor = "#086068";
-}
-document.body.style.backgroundImage = "url('assets/images/background.jpg')";
-for (let i = 0; i < btns.length; i++) {
-btns[i].style.backgroundColor = "#01394a";
-}
-theme = "grid-img.png";
-}
-```
-
 ## Features Left to Implement
-
-- Implement more difficult settings, one being more boxes, and a hard-mode requiring a correct answer to a question relevant to the actual building (if correct guess, shave off a point on 'clicks')
-- An high-score feature.
 
 ## Deployment
 
@@ -186,9 +146,6 @@ The live link can be found here - https://marcroth0.github.io/memory-game/
 
 ## Credits
 
-- Some of the basic structure was inspired by [Fakorede Damilola](https://dev.to/fakorededamilola/create-a-memory-game-with-js-1l9j)
 - A general shout-out to [StackOverflow](https://stackoverflow.com/)
 
 ## Media
-
-- Images used were taken from [Pexels](https://www.pexels.com/photo/photo-of-skyline-at-night-3075993/)
