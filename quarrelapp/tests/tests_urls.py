@@ -14,11 +14,10 @@ class TestUrls(SimpleTestCase):
 
     def test_postview_url_is_resolved(self):
         url = reverse('post_detail', args=['post-id'])
-
         self.assertEquals(resolve(url).func.view_class, PostDetail)
 
     # def test_postlike_url_is_resolved(self):
-    #     url = reverse('post_like', args=['like-id'], kwargs=['int:id'])
+    #     url = reverse('post_like', args=[id])
     #     self.assertEquals(resolve(url).func.view_class, PostLike)
 
     # def test_post_edit_url_is_resolved(self):

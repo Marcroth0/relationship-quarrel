@@ -38,7 +38,7 @@
           </a>
           <hr />
 
-          <p class="card-text">{{ post.description }}</p>
+          <p class="card-text mr-2 ml-2">{{ post.description }}</p>
           <div class="row d-flex text-center align-text-bottom">
             <div class="col-sm">
               <span class="text-secondary"><i class="fas fa-heart heart-custom-purple"></i></span>
@@ -81,11 +81,11 @@
     <ul class="pagination justify-content-center">
       {% if page_obj.has_previous %}
       <li>
-        <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a>
+        <a href="?page={{ page_obj.previous_page_number }}" class="page-link background-tryout">&laquo; PREV </a>
       </li>
       {% endif %} {% if page_obj.has_next %}
       <li>
-        <a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a>
+        <a href="?page={{ page_obj.next_page_number }}" class="page-link background-tryout"> NEXT &raquo;</a>
       </li>
 
       {% endif %}

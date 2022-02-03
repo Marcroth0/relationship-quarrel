@@ -32,3 +32,9 @@ class TestQuarrelViews(TestCase):
 
     #     self.assertTrue(content_one.likes.filter(
     #         id=request.user.id).exists())
+
+    # def test_like_function(self):
+    #     """Test Coach list view"""
+    #     response = self.client.get('/')
+    #     self.assertEqual(response.status_code, 200)
+    #     self.assertTemplateUsed(response, 'index.html')

@@ -15,6 +15,14 @@
   background-image: linear-gradient(-90deg, #d38312, #a83279);
 }
 
+.background-tryout {
+  background-image: linear-gradient(-90deg, #d38312, #a83279);
+  color: white;
+  border-radius: 3px;
+  margin-top: 10px;
+  font-family: "Mochiy Pop P One", Montserrat;
+}
+
 .col-12.background-tryout {
   background-image: linear-gradient(-90deg, #d38312, #a83279);
   color: white;
