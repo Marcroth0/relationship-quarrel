@@ -68,13 +68,19 @@ Quarrel is a platform where arguments are come to an end. Two people face off in
 
 I wireframed it using Balsamiq:
 
-![wireframe](media/images/readme-images/readme-landing-page-mobile.png)
+Landing page:
+
+![wireframe](media/images/readme-images/readme-landing-page.png)
+
+Landing page - Mobile:
 
 ![wireframe](media/images/readme-images/readme-landing-page-mobile.png)
+
+A post full screen:
 
 ![wireframe](media/images/readme-images/readme-post-detail-page.png)
 
-The only thing that strayed from the initial wireframe was the addition of the two themes.
+### End Design Result:
 
 ### Fonts
 
