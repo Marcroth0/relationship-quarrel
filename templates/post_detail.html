@@ -126,9 +126,17 @@
             {{ comment_form | crispy }} {% csrf_token %}
             <div class="container">
             <div class="row">
+              {% if user.is_authenticated %}
               <div class="col">
                 <button type="submit" class="btn btn-custom btn-md montserrat text-white">Post &raquo;</button>
               </div>
+              {% else %}
+              <div class="col">
+              <button type="submit" class="btn btn-custom btn-md montserrat">
+<a class="text-white" href="{% url 'account_login' %}">Login &raquo;</a></button>
+<p><small class="text-muted">You have to login in order to comment</small></p>
+              </div>
+              {% endif %}
               <div class="col-6">
               </div>
               <div class="col">

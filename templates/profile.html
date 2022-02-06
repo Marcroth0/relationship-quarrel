@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 <div class="row border-top-2 border-right-2 border-left-2 shadow-sm mb-1">
   <div class="col-12 background-tryout text-center align-middle">
     <h2>YOUR QUARRELS</h2>
@@ -9,7 +9,17 @@
     {% for post in user_posts %}
     <div class="col-md-4 mt-2 col-sm-12 justify-content-center border title-custom">
       <div class="card card-height">
-        <img src="https://i.imgur.com/ZTkt4I5.jpg" class="card-img-top" alt="..." />
+        {% if post.title == "CLEANING" %}
+        <img src="{% static 'images/CLEANING.jpg' %}" class="card-img-top" alt="..." />
+        {% elif post.title == "OTHER" %}
+        <img src="{% static 'images/OTHER.jpg' %}" class="card-img-top" alt="..." />
+        {% elif post.title == "JEALOUSY" %}
+        <img src="{% static 'images/JEALOUSY.jpg' %}" class="card-img-top" alt="..." />
+        {% elif post.title == "YOUNEVER" %}
+        <img src="{% static 'images/YOUNEVER.jpg' %}" class="card-img-top" alt="..." />
+        {% else %}
+        <img src="https://i.imgur.com/FYqU8mB.jpg" class="card-img-top" alt="..." />
+        {% endif %}
         <div class="card-body">
           <a href="{% url 'post_detail' post.slug %}" class="post-link">
             <h5 class="card-title link-dark">{{ post.title }}</h5>

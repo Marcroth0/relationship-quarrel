@@ -1,5 +1,6 @@
 from django.shortcuts import render, reverse, get_object_or_404
 from django.http import HttpResponseRedirect
+import os
 from django.contrib import messages
 from django.views import generic, View
 from django.conf import settings
@@ -7,6 +8,13 @@ from django.contrib.auth.models import User
 from .models import Post, CommentPost, Comment
 from .forms import CommentForm, PostForm
 from django.core.paginator import Paginator
+
+
+# def index(request):
+#     path = settings.MEDIA_ROOT
+#     img_list = os.listdir(path + '/images')
+#     context = {'images': img_list}
+#     return render(request, "quarrelapp/index.html", context)
 
 
 class PostList(generic.ListView):
