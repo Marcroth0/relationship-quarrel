@@ -13,4 +13,4 @@ urlpatterns = [
     path('edit_post/<slug:slug>/', views.PostEdit.edit_post, name='edit_post'),
     path('delete/<int:id>', views.PostDetail.delete_own_comment,
          name='delete_comment'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
