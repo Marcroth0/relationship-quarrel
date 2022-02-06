@@ -9,6 +9,7 @@ class TestQuarrelViews(TestCase):
 
     def setUp(self):
         self.client = Client()
+        self.postdetail_url = reverse('post_detail')
         self.user = User.objects.create_user(
             username='test@test.com',
             email='test@test.com', password='12345678')
@@ -25,6 +26,10 @@ class TestQuarrelViews(TestCase):
                     content_two=comment_two, description='A description')
         self.assertEqual(post.description, 'A description')
         self.assertEqual(post.content_one.content, 'Whatever')
+
+    def test_postdetail(self):
+        response = self.client.get(self.postdetail_url)
+        self.assertEqual(response.status_code, 200)
 
     # def test_like_function(self, request):
     #     post = get_object_or_404(Post)

@@ -16,6 +16,13 @@ class PostList(generic.ListView):
     paginate_by = 6
 
 
+# class PostDetailList(generic.ListView):
+#     model = Post
+#     queryset = Post.objects.order_by("-date_published")
+#     template_name = "post_detail.html"
+#     paginate_by = 1
+
+
 class PostDetail(View):
     def get(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug)
