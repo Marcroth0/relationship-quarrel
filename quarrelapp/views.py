@@ -34,7 +34,7 @@ class PostList(generic.ListView):
 class PostDetail(View):
     def get(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug)
-        comments = post.comments.order_by('date_published')
+        comments = post.comments.order_by("date_published")
         liked_one = False
         liked_two = False
         if post.content_one.likes.filter(id=self.request.user.id).exists():
@@ -50,13 +50,13 @@ class PostDetail(View):
                 "comments": comments,
                 "liked_one": liked_one,
                 "liked_two": liked_two,
-                "comment_form": CommentForm()
-            }
+                "comment_form": CommentForm(),
+            },
         )
 
     def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug)
-        comments = post.comments.order_by('date_published')
+        comments = post.comments.order_by("date_published")
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
@@ -81,63 +81,63 @@ class PostDetail(View):
                 "post": post,
                 "comments": comments,
                 "liked": liked,
-                "comment_form": CommentForm()
-            }
+                "comment_form": CommentForm(),
+            },
         )
 
     def delete_own_comment(request, id=None):
         comment = get_object_or_404(Comment, id=id)
-        if comment.name == request.user.username and request.user.is_authenticated:
+        r = request.user
+        if (
+            comment.name == r.username and r.is_authenticated
+        ):
             comment.delete()
             messages.add_message(
-                request, messages.SUCCESS,
-                f"Congratulations, your tracks are hidden"
+                request,
+                messages.SUCCESS,
+                f"Congratulations, your tracks are hidden",
             )
-            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+            return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
             # return HttpResponseRedirect(reverse(''))
         else:
-            messages.add_message(
-                request, messages.ERROR,
-                f"An error occurred"
-            )
+            messages.add_message(request, messages.ERROR, f"An error occurred")
 
 
 class UserPost(View):
     def get(self, request):
         form = PostForm(request.GET or None)
         if request.user.is_authenticated:
-            return render(request, "user_post.html",
-                          {
-                              "form": form,
-                              "post_form": PostForm()
-                          }
-                          )
+            return render(
+                request,
+                "user_post.html",
+                {"form": form, "post_form": PostForm()},
+            )
         else:
             messages.add_message(
-                request, messages.ERROR,
-                f"You need to login first, silly."
+                request,
+                messages.ERROR,
+                f"You need to login first, silly.",
             )
-            return HttpResponseRedirect('/accounts/login')
+            return HttpResponseRedirect("/accounts/login")
 
     def post(self, request):
         form = PostForm(request.POST or None)
 
-        if request.method == 'POST':
+        if request.method == "POST":
             if form.is_valid():
                 post = form.save(commit=False)
                 c_one = request.POST["content_one"]
                 c_two = request.POST["content_two"]
 
-                post.content_one = CommentPost.objects.create(
-                    content=c_one)
-                post.content_two = CommentPost.objects.create(
-                    content=c_two)
+                post.content_one = CommentPost.objects.create(content=c_one)
+                post.content_two = CommentPost.objects.create(content=c_two)
                 post.user = request.user
 
                 post.save()
-            return HttpResponseRedirect('/')
-        context = {'form': form,
-                   }
+            return HttpResponseRedirect("/")
+        context = {
+            "form": form,
+        }
 
 
 class PostLike(View):
@@ -159,13 +159,13 @@ class PostLike(View):
                 post.content_two.likes.add(request.user)
             if post.content_one.likes.filter(id=request.user.id).exists():
                 post.content_one.likes.remove(request.user)
-        return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+        return HttpResponseRedirect(reverse("post_detail", args=[slug]))
 
 
 class PostEdit(View):
     def edit_post(request, slug):
         post = Post.objects.get(slug=slug)
-        if request.method != 'POST':
+        if request.method != "POST":
             form = PostForm(instance=post)
         else:
             form = PostForm(instance=post, data=request.POST)
@@ -174,12 +174,14 @@ class PostEdit(View):
                 c_one = request.POST["content_one"]
                 c_two = request.POST["content_two"]
 
-                CommentPost.objects.filter(
-                    id=post.content_one.id).update(content=c_one)
-                CommentPost.objects.filter(
-                    id=post.content_two.id).update(content=c_two)
+                CommentPost.objects.filter(id=post.content_one.id).update(
+                    content=c_one
+                )
+                CommentPost.objects.filter(id=post.content_two.id).update(
+                    content=c_two
+                )
                 form.save()
-                return HttpResponseRedirect(reverse('profile'))
+                return HttpResponseRedirect(reverse("profile"))
 
-        context = {'post': post, 'form': form}
-        return render(request, 'edit_post.html', context)
+        context = {"post": post, "form": form}
+        return render(request, "edit_post.html", context)

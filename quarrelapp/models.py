@@ -13,13 +13,14 @@ User = settings.AUTH_USER_MODEL
 
 
 def rand_slug():
-    return ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(6))
+    return "".join(
+        random.choice(string.ascii_letters + string.digits) for _ in range(6)
+    )
 
 
 class CommentPost(models.Model):
     content = models.TextField()
-    likes = models.ManyToManyField(
-        User, related_name='likes', blank=True)
+    likes = models.ManyToManyField(User, related_name="likes", blank=True)
 
     def number_of_likes(self):
         return self.likes.count()
@@ -27,12 +28,15 @@ class CommentPost(models.Model):
 
 class Post(models.Model):
     user = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='posts')
+        User, on_delete=models.CASCADE, related_name="posts"
+    )
     content_one = models.OneToOneField(
-        CommentPost, on_delete=models.CASCADE, related_name="content_post_one")
+        CommentPost, on_delete=models.CASCADE, related_name="content_post_one"
+    )
     content_two = models.OneToOneField(
-        CommentPost, on_delete=models.CASCADE, related_name="content_post_two")
-    description = models.TextField(default='')
+        CommentPost, on_delete=models.CASCADE, related_name="content_post_two"
+    )
+    description = models.TextField(default="")
 
     CLEANING = "CLEANING"
     JEALOUSY = "JEALOUSY"
@@ -40,10 +44,10 @@ class Post(models.Model):
     OTHER = "OTHER"
 
     TITLE_CHOICES = [
-        (CLEANING, 'Cleaning'),
-        (JEALOUSY, 'Jealousy'),
-        (YOUNEVER, 'You never'),
-        (OTHER, 'Other'),
+        (CLEANING, "Cleaning"),
+        (JEALOUSY, "Jealousy"),
+        (YOUNEVER, "You never"),
+        (OTHER, "Other"),
     ]
     title = models.CharField(
         max_length=13,
@@ -53,7 +57,8 @@ class Post(models.Model):
     slug = models.SlugField(max_length=255, unique=True)
     date_published = models.DateTimeField(auto_now=True)
     likes = models.ManyToManyField(
-        User, related_name='content_likes', blank=True)
+        User, related_name="content_likes", blank=True
+    )
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -72,7 +77,8 @@ class Post(models.Model):
 
 class Comment(models.Model):
     post = models.ForeignKey(
-        Post, on_delete=models.CASCADE, related_name="comments")
+        Post, on_delete=models.CASCADE, related_name="comments"
+    )
     name = models.CharField(max_length=80)
     email = models.EmailField()
     body = models.TextField(max_length=120)
@@ -82,9 +88,9 @@ class Comment(models.Model):
     UNDECIDED = "UND"
 
     QUARREL_CHOICES = [
-        (CONTENTONE, 'Left'),
-        (UNDECIDED, 'Undecided'),
-        (CONTENTTWO, 'Right')
+        (CONTENTONE, "Left"),
+        (UNDECIDED, "Undecided"),
+        (CONTENTTWO, "Right"),
     ]
     quarrel_choice = models.CharField(
         max_length=14,

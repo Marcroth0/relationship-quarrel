@@ -16,9 +16,7 @@ from .forms import UserDeactivateForm, UserDeleteForm
 
 @login_required
 def profile(request, pk=None):
-    """
-
-    """
+    """ """
     if pk:
         post_creator = get_object_or_404(User, pk=pk)
         user_posts = Post.objects.filter(user=request.user)
@@ -26,7 +24,11 @@ def profile(request, pk=None):
     else:
         post_creator = request.user
         user_posts = Post.objects.filter(user=request.user)
-    return render(request, 'profile.html', {'post_creator': post_creator, 'user_posts': user_posts})
+    return render(
+        request,
+        "profile.html",
+        {"post_creator": post_creator, "user_posts": user_posts},
+    )
 
 
 class UserDeactivateView(LoginRequiredMixin, View):
@@ -36,7 +38,7 @@ class UserDeactivateView(LoginRequiredMixin, View):
 
     def get(self, request, *args, **kwargs):
         form = UserDeactivateForm()
-        return render(request, 'deactivate_user.html', {'form': form})
+        return render(request, "deactivate_user.html", {"form": form})
 
     def post(self, request, *args, **kwargs):
         form = UserDeactivateForm(request.POST)
@@ -48,10 +50,10 @@ class UserDeactivateView(LoginRequiredMixin, View):
             # Log user out.
             logout(request)
             # Give them a success message.
-            messages.success(request, 'Account successfully deactivated')
+            messages.success(request, "Account successfully deactivated")
             # Redirect to home page.
-            return redirect(reverse('home'))
-        return render(request, 'deactivate_user.html', {'form': form})
+            return redirect(reverse("home"))
+        return render(request, "deactivate_user.html", {"form": form})
 
 
 class UserDeleteView(LoginRequiredMixin, View):
@@ -61,7 +63,7 @@ class UserDeleteView(LoginRequiredMixin, View):
 
     def get(self, request, *args, **kwargs):
         form = UserDeleteForm()
-        return render(request, 'delete_user.html', {'form': form})
+        return render(request, "delete_user.html", {"form": form})
 
     def post(self, request, *args, **kwargs):
         form = UserDeleteForm(request.POST)
@@ -74,9 +76,9 @@ class UserDeleteView(LoginRequiredMixin, View):
             # Delete user (and any associated ForeignKeys, according to
             # on_delete parameters).
             user.delete()
-            messages.success(request, 'Account successfully deleted')
-            return redirect(reverse('home'))
-        return render(request, 'delete_user.html', {'form': form})
+            messages.success(request, "Account successfully deleted")
+            return redirect(reverse("home"))
+        return render(request, "delete_user.html", {"form": form})
 
 
 @login_required
@@ -84,4 +86,4 @@ class PostDeleteView(DeleteView):
     def delete_post(request, slug=None):
         post_to_delete = Post.objects.get(slug=slug)
         post_to_delete.delete()
-        return HttpResponseRedirect(reverse('profile'))
+        return HttpResponseRedirect(reverse("profile"))
