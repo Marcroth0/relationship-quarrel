@@ -24,4 +24,4 @@ urlpatterns = [
     path('/', include('websitemanage.urls'),
          name='websitemanage_urls'),
     path('accounts/', include('allauth.urls')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]  # + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
