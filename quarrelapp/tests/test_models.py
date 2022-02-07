@@ -3,6 +3,8 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 from django.shortcuts import reverse, get_object_or_404
 from quarrelapp.models import Post, CommentPost, Comment
+import os
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'quarrel.settings')
 
 
 class PostModelTestCase(TestCase):

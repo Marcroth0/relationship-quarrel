@@ -52,7 +52,18 @@
           {% endif %}
           </ul>
           {% if user.is_authenticated %}
-          <div class="dropdown dropleft">
+          <div class="dropdown dropleft bigScreen">
+            <a class="btn btn-custom text-white dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+              Account
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="{% url 'profile' %}">My Posts</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{% url 'deactivate_user' %}">Deactivate Account</a>
+              <a class="dropdown-item" href="{% url 'delete_user' %}">Delete Account</a>
+            </div>
+          </div>
+            <div class="dropdown smallScreen">
             <a class="btn btn-custom text-white dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
               Account
             </a>

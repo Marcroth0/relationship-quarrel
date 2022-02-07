@@ -93,3 +93,23 @@
 .card-height {
   height: 100%;
 }
+
+/* Media queries */
+
+@media (max-width: 1000px) {
+  .bigScreen {
+    display: none;
+  }
+  .smallScreen {
+    display: block;
+  }
+}
+
+@media (min-width: 1001px) {
+  .bigScreen {
+    display: block;
+  }
+  .smallScreen {
+    display: none;
+  }
+}
