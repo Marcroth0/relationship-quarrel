@@ -69,6 +69,7 @@ class PostDetail(View):
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
+            return HttpResponseRedirect(request.path_info)
 
         else:
             comment_form = CommentForm()
