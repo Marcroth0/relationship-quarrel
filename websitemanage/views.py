@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render, get_object_or_404
 from django.urls import reverse
-from django.views.generic import View
+from django.views.generic import View, TemplateView
 from django.views.generic.edit import DeleteView
 from django.http import HttpResponseRedirect
 
@@ -87,3 +87,11 @@ class PostDeleteView(DeleteView):
         post_to_delete = Post.objects.get(slug=slug)
         post_to_delete.delete()
         return HttpResponseRedirect(reverse("profile"))
+
+
+class About(TemplateView):
+    """About us page"""
+    template_name = 'about.html'
+
+    def about(self, request):
+        return render(request, 'about.html')
