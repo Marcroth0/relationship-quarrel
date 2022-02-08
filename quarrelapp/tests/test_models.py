@@ -7,15 +7,13 @@ from quarrelapp.models import Post, CommentPost, Comment
 
 class PostModelTestCase(TestCase):
     def setUp(self):
-        # Disconnect signal from haystack, no need to generate index for test generated articles
+        # Disconnect signal from haystack, no need to generate
+        # index for test generated articles
         # apps.get_app_config('haystack').signal_processor.teardown()
         self.user = User.objects.create_user(
-            username='admin',
-            email='admin@hellogithub.com',
-            password='123!!')
-        self.login = self.client.login(
-            username='admin',
-            password='123!!')
+            username="admin", email="admin@hellogithub.com", password="123!!"
+        )
+        self.login = self.client.login(username="admin", password="123!!")
         self.contentOne = CommentPost.objects.create(
             content="content one test",
         )
@@ -23,19 +21,17 @@ class PostModelTestCase(TestCase):
             content="content two test")
 
         self.post = Post.objects.create(
-            title='CLEANING',
+            title="CLEANING",
             content_one=self.contentOne,
             content_two=self.contentTwo,
-            description='Test description',
+            description="Test description",
             user=self.user,
         )
 
     def test_post_create_01(self):
-        testpost = get_object_or_404(Post, title='CLEANING')
-        self.assertEqual(self.post.content_one,
-                         testpost.content_one)
-        self.assertEqual(self.post.content_two,
-                         testpost.content_two)
+        testpost = get_object_or_404(Post, title="CLEANING")
+        self.assertEqual(self.post.content_one, testpost.content_one)
+        self.assertEqual(self.post.content_two, testpost.content_two)
         self.assertEqual(self.post.description, "Test description")
         self.assertNotEqual(self.post.content_two, testpost.content_one)
         self.assertNotEqual(self.post.description, "Descriptionz")
@@ -43,10 +39,9 @@ class PostModelTestCase(TestCase):
         self.assertEqual(self.post.date_published, testpost.date_published)
 
     def test_add_comment(self):
-        post = get_object_or_404(Post, title='CLEANING')
+        post = get_object_or_404(Post, title="CLEANING")
         self.comment = Comment.objects.create(
-            post=post,
-            body="This is my comment"
+            post=post, body="This is my comment"
         )
         self.assertEqual(self.comment.body, "This is my comment")
         self.assertNotEqual(self.comment.body, "Not my comment")
@@ -55,7 +50,7 @@ class PostModelTestCase(TestCase):
         self.assertIsNotNone(self.comment.date_published)
 
     def test_add_like(self):
-        post = get_object_or_404(Post, title='CLEANING')
+        post = get_object_or_404(Post, title="CLEANING")
         post.content_one.likes.add(self.user)
         self.assertEqual(post.content_one.number_of_likes(), 1)
 

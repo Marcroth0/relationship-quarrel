@@ -4,7 +4,11 @@
   <div class="row d-flex justify-content-center text-center">
     <div class="col-md-6">
       <h1 class="display-4">
-        <strong>Deactivation-for-a-<em>Vacation!</em></strong>
+        <strong
+          >Deactivation-for-a-<em
+            ><span class="gradient-text">Vacation!</span></em
+          ></strong
+        >
       </h1>
       <hr />
       <p>
@@ -13,7 +17,7 @@
       <form action="{% url 'deactivate_user' %}" method="POST" class="padding">
         {% csrf_token %} {{ form.as_p}}
         <button
-          class="btn btn-primary btn-custom text-white"
+          class="btn btn-primary btn-custom text-white montserrat"
           type="submit"
           name="action"
         >

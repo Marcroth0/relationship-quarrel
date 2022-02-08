@@ -8,7 +8,9 @@
 
 <form method="POST" class="mt-3 mb-3" action data-np-checked="1">
   {% csrf_token %}
-  <h1 class="display-4"><strong>Enter the arena!</strong></h1>
+  <h1 class="display-4">
+    <strong>Enter the <span class="gradient-text">Arena!</span></strong>
+  </h1>
   <p>Finally, let the Internet decide who's correct in your Quarrel</p>
   <div class="form-group">
     <label for="title"><em>Choose an appropriate category:</em></label>
@@ -63,7 +65,7 @@
   <input
     type="submit"
     value="Post"
-    class="btn btn-custom text-white"
+    class="btn btn-md btn-custom text-white montserrat"
     data-np-checked="1"
   />
 </form>

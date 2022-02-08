@@ -1,7 +1,8 @@
 @font-face {
   font-family: "Mochiy Pop P One", Montserrat;
   src: url("webfont.eot"); /* IE9 Compat Modes */
-  src: url("webfont.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */ url("webfont.woff2") format("woff2"),
+  src: url("webfont.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */ url("webfont.woff2") format("woff2"),
     /* Super Modern Browsers */ url("webfont.woff") format("woff"),
     /* Pretty Modern Browsers */ url("webfont.ttf") format("truetype"),
     /* Safari, Android, iOS */ url("webfont.svg#svgFontName") format("svg"); /* Legacy iOS */
@@ -9,6 +10,14 @@
 * {
   margin: 0px;
   padding: 0px;
+}
+
+h1 {
+  font-family: "Mochiy Pop P One", Montserrat;
+}
+
+p {
+  font-family: "Montserrat", sans-serif;
 }
 
 .navbar.navbar-try {
@@ -57,7 +66,11 @@
     color-stop(0.33, #a83279),
     color-stop(0.67, #d38312)
   );
-  background-image: -moz-linear-gradient(center bottom, #a83279 33%, #d38312 67%);
+  background-image: -moz-linear-gradient(
+    center bottom,
+    #a83279 33%,
+    #d38312 67%
+  );
   padding: 2px;
 }
 
@@ -73,6 +86,14 @@
   color: #a83279;
   font-size: 1.9em;
   text-shadow: 1px 1px 1px #ccc;
+}
+
+.purple-text {
+  color: #a83279;
+}
+
+.orange-text {
+  color: #d38312;
 }
 
 .icon-size {

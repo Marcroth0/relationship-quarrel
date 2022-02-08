@@ -1,13 +1,16 @@
 {% extends "base.html" %} {% load static %} {% block content %}
 
 <div class="jumbotron bg-light border shadow text-center mb-0 mt-2">
-  <h1 class="display-3"><strong>Issues at home?</strong></h1>
+  <h1 class="display-3">
+    <strong><span class="gradient-text">Issues</span> at home?</strong>
+  </h1>
   <p class="lead">
     Since the dawn of the creation of the Internet, it has been, without a
-    doubt*, the best place to ask for solid advice
+    doubt<span class="gradient-text">*</span>, the best place to ask for solid
+    advice
   </p>
   <hr class="my-4" />
-  <p>
+  <p class="text-secondary">
     <em
       >Is someone not doing the dishes? Cleaning? An argument unsolved? Instead
       of practicing your communication skills...</em
@@ -15,16 +18,19 @@
   </p>
   <p class="lead">
     <a
-      class="btn btn-custom btn-lg text-white"
+      class="btn btn-custom btn-lg mt-3 shadow text-white"
       href="{% url 'user_post' %}"
       role="button"
       aria-label="Post"
       >Ask The Internet &raquo;</a
     >
   </p>
+  <p class="float-right">
+    <span class="gradient-text">*</span><em>Some doubt</em>
+  </p>
 </div>
 <div class="row border-top-2 border-right-2 border-left-2 shadow-sm mb-1">
-  <div class="col-12 background-tryout text-center align-middle">
+  <div class="col-12 background-tryout text-center align-middle shadow">
     <h2>QUARRELS</h2>
   </div>
 </div>
@@ -33,7 +39,15 @@
   <div class="row img-fluid">
     {% for post in post_list %}
     <div
-      class="col-md-4 mt-2 col-sm-12 justify-content-center border title-custom"
+      class="
+        col-md-4
+        shadow
+        mt-2
+        col-sm-12
+        justify-content-center
+        border
+        title-custom
+      "
     >
       <div class="card card-height">
         {% if post.title == "CLEANING" %}

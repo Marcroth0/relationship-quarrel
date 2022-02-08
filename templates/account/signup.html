@@ -9,18 +9,25 @@
 <div class="container">
   <div class="row d-flex justify-content-center">
     <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4 text-center mb-5  form-group">
-      <h1 class="display-3">{% trans "Sign Up" %}</h1>
+      <h1 class="display-3 gradient-text mt-3 mb-3">{% trans "Sign Up" %}</h1>
       <p>{% blocktrans %}Already have an account? Then what are you doing here? Just: <br><a class="btn btn-custom text-white mt-2" href="{{ login_url }}" role="button">Login here &raquo;</a>{% endblocktrans %}</p>
       <hr>
+    </div>
+  </div>
+</div>
+</div>
+  <div class="row d-flex justify-content-center text-center">
+    <div class="col-md-5">
         <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
         {% csrf_token %}
         {{ form.as_p }}
         {% if redirect_field_value %}
           <input type="hidden" class="form-control" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
-        <button type="submit" class="btn btn-custom text-white">{% trans "Sign Up" %} &raquo;</button>
+        <button type="submit" class="btn btn-custom text-white mt-2">{% trans "Sign Up" %} &raquo;</button>
       </form>
     </div>
   </div>
 </div>
+
 {% endblock %}
