@@ -40,25 +40,25 @@ Quarrel is a platform where arguments are come to an end. Two people face off in
 
 5. As a Site User I can create an account so that I can comment, like, and post
 
-6.As a Site User I can create a post so that I can view it on the site and receive comments from other users
+6. As a Site User I can create a post so that I can view it on the site and receive comments from other users
 
-7.As a Site user I can leave comments on a post so that I can be a part of the conversation
+7. As a Site user I can leave comments on a post so that I can be a part of the conversation
 
-8.As a Site User I can create, read, update and delete posts so that I can manage my posts content
+8. As a Site User I can create, read, update and delete posts so that I can manage my posts content
 
-9.As a Site user I can go to next page so that I see more posts
+9. As a Site user I can go to next page so that I see more posts
 
-10.As a User I can like which of the two posts i agree with so that I can be a part of deciding the winner of the argument
+10. As a User I can like which of the two posts i agree with so that I can be a part of deciding the winner of the argument
 
-11.As a User I can update my post so that I can edit a post if something went wrong
+11. As a User I can update my post so that I can edit a post if something went wrong
 
-12.As a user I can delete my post so that I, or anyone else, can see it anymore
+12. As a user I can delete my post so that I, or anyone else, can see it anymore
 
-13.As a user I can delete my account so that I don't have an account anymore
+13. As a user I can delete my account so that I don't have an account anymore
 
-14.As a user I can have my own posts in a profile so that I can easily reach them
+14. As a user I can have my own posts in a profile so that I can easily reach them
 
-15.As a User I can delete my comment so that I can write a new one, or if I regret it
+15. As a User I can delete my comment so that I can write a new one, or if I regret it
 
 ## Strategy
 
@@ -70,17 +70,35 @@ I wireframed it using Balsamiq:
 
 Landing page:
 
-![wireframe](media/images/readme-images/readme-landing-page.png)
+![wireframe](static/images/readme-images/readme-landing-page-mobile.png)
 
 Landing page - Mobile:
 
-![wireframe](media/images/readme-images/readme-landing-page-mobile.png)
+![wireframe](static/images/readme-images/readme-landing-page-mobile.png)
 
 A post full screen:
 
-![wireframe](media/images/readme-images/readme-post-detail-page.png)
+![wireframe](static/images/readme-images/readme-post-detail-page.png)
 
 ### End Design Result:
+
+Navbar:
+![navbar](static/images/readme-images/quarrel-navbar-readme.png)
+
+Navbar(Logged in):
+![navbar](static/images/readme-images/quarrel-navbar-logged-readme.png)
+
+Hero:
+![hero](static/images/readme-images/quarrel-hero-readme.png)
+
+Quarrels:
+![quarrels](static/images/readme-images/quarrel-quarrels-readme.png)
+
+Post Detail:
+![postdetail](static/images/readme-images/quarrel-postdetail-readme.png)
+
+Footer:
+![footer](static/images/readme-images/quarrel-footer-readme.png)
 
 ### Fonts
 
