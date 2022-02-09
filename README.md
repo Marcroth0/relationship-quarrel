@@ -1,6 +1,6 @@
 # relationship-quarrel
 
-![amiresponsive]()
+![amiresponsive](static/images/readme-images/quarrel-responsive-readme.png)
 
 Live link:
 
@@ -60,9 +60,38 @@ Quarrel is a platform where arguments are come to an end. Two people face off in
 
 15. As a User I can delete my comment so that I can write a new one, or if I regret it
 
+# UX
+
 ## Strategy
 
-## Design
+Target Audience:
+
+- 18-40 year olds
+- People who are looking to take arguments with a bit of comedy
+- People who would like to improve their communication skills
+- People who've seen too many one-sided-stories
+
+The audience is looking for something where both sides are visible. With the ability to post both arguments and hash it out once and for all, with complete strangers on the internet, the site allows the user to read different points of views and thereafter see whose argument was the best.
+
+## Design/Structure
+
+Quarrel has been designed to be easily navigated, easily managed, and with few but important functions. Straight-forward argument-solving website. Through two apps and three models it acchieves its goal.
+
+Apps:
+
+1. Quarrelapp:
+   Core functionality containing models(Post, Comments, CommentPost)
+2. Websitemanage:
+   Holds basic views-functions such as delete user, deactivate user, delete post, general views.
+
+### Databases:
+
+Quarrelapp holds all the databases, consisting of:
+
+1. Post in combination with CommentPost allows for the ability of letting the user create a post, but through a OneToOneField with CommentPost, separate the likes and comments. Through the ability of calling different keys, connected to each argument, it allows for the possibility of cross-liking as well as future customization of the comment section(more on that in improvements) With each post, the model generates the users post but splits the content one and content two into separate keys which are then callable in views.
+2. Comment allows for users to comment on posts with date-stamps, as well as Post, have a built-in CASCADE in order to delete all comments related to user if user decided to delete their account.
+
+Below is a diagram of the correlation between the models:
 
 ### Planning
 
@@ -97,13 +126,26 @@ Quarrels:
 Post Detail:
 ![postdetail](static/images/readme-images/quarrel-postdetail-readme.png)
 
+About page:
+![about](static/images/readme-images/quarrel-about-readme.png)
+
 Footer:
 ![footer](static/images/readme-images/quarrel-footer-readme.png)
 
+### Color Palette
+
+Colors:
+![palette](static/images/readme-images/quarrel-color-readme.png)
+
+### Reasoning
+
+The design of the website was crucial. It being a "argument-solver" it needed to be flimsical and not take the initial argument, or the definition of an argument, all that seriously. With the ability of seeing it, instead of an obstacle, as a "funny challenge" to post it to the internet. Hence the sarcastic comments spread around the website. With a comical twist, but on serious subjects, it will hopefully invoke a funny tone in the comments as well as an appearance of the "good side" of the internet which are there to actually help.
+
 ### Fonts
 
-font-family: "Roboto", sans-serif (The rest)
-font-family: "Alfa Slab One" (H1/H2)
+Font-family: "Mochiy Pop P One", Montserrat;
+
+##
 
 ## Testing
 
@@ -129,7 +171,7 @@ I tested the responsiveness of the site on the below units, using chrome dev as 
 - Safari
 - Edge
 
-### Functional testing
+### Manual testing
 
 See further on click [here](assets/testing.md)
 
@@ -144,20 +186,40 @@ W3 HTML Validator:
 ![htmlvalidator](assets/images/html-validator-readme.png)
 
 W3 CSS Validator:
-![cssvalidator](assets/images/css-validator-readme.png)
+![cssvalidator]()
 
-JS validator:
+Pep8 validator:
 ![jsvalidator](assets/images/js-validator-readme.png)
-
-The issues portrayed I deemed not needing a fix, considering the "defined but never used" is functions being called in the html-document.
 
 ## Unfixed Bugs
 
 No known bugs.
 
+## Technologies used:
+
+Python
+Django
+Cloudinary
+Crispy forms
+Github
+Vscode
+PostgreSQL
+SQlite
+Pep8
+Prettier
+ImgBot
+Google Developer Tools
+Bootstrap
+Git
+AmIResponsive
+
 ## Improvements
 
 ## Features Left to Implement
+
+- A reply-to-comments-function.
+- The ability for one person to write their argument, then through a link allow the second one write theirs, when received the post get created and published.
+- Pagination on post_detail for a smoother site experience and a feeling of "just one more"
 
 ## Deployment
 
