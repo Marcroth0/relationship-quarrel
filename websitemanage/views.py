@@ -16,7 +16,9 @@ from .forms import UserDeactivateForm, UserDeleteForm
 
 @login_required
 def profile(request, pk=None):
-    """ """
+    """
+    Connects posts to user
+    """
     if pk:
         post_creator = get_object_or_404(User, pk=pk)
         user_posts = Post.objects.filter(user=request.user)
@@ -44,14 +46,10 @@ class UserDeactivateView(LoginRequiredMixin, View):
         form = UserDeactivateForm(request.POST)
         # Form will be valid if checkbox is checked.
         if form.is_valid():
-            # Make user inactive and save to database.
             request.user.is_active = False
             request.user.save()
-            # Log user out.
             logout(request)
-            # Give them a success message.
             messages.success(request, "Account successfully deactivated")
-            # Redirect to home page.
             return redirect(reverse("home"))
         return render(request, "deactivate_user.html", {"form": form})
 
@@ -70,8 +68,6 @@ class UserDeleteView(LoginRequiredMixin, View):
         # Form will be valid if checkbox is checked.
         if form.is_valid():
             user = request.user
-            # Logout before we delete. This will make request.user
-            # unavailable (or actually, it points to AnonymousUser).
             logout(request)
             # Delete user (and any associated ForeignKeys, according to
             # on_delete parameters).
@@ -83,6 +79,9 @@ class UserDeleteView(LoginRequiredMixin, View):
 
 @login_required
 class PostDeleteView(DeleteView):
+    """
+    Gets correct post and deletes it, returns back to profile
+    """
     def delete_post(request, slug=None):
         post_to_delete = Post.objects.get(slug=slug)
         post_to_delete.delete()

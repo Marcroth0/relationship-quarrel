@@ -1,6 +1,5 @@
 from django.shortcuts import render, reverse, get_object_or_404
 from django.http import HttpResponseRedirect
-import os
 from django.contrib import messages
 from django.views import generic, View
 from .models import Post, CommentPost, Comment
@@ -47,7 +46,6 @@ class PostDetail(View):
         comment_form = CommentForm(data=request.POST)
 
         if comment_form.is_valid():
-            # comment_form.instance.email = request.user.email
             comment_form.instance.name = request.user.username
             comment = comment_form.save(commit=False)
             comment.post = post

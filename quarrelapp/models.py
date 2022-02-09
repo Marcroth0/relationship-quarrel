@@ -1,12 +1,8 @@
 from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import User
-from cloudinary.models import CloudinaryField
 import string
 import random
-
-from django.db.models.signals import pre_save
-from django.dispatch import receiver
 from django.utils.text import slugify
 
 User = settings.AUTH_USER_MODEL
@@ -19,6 +15,9 @@ def rand_slug():
 
 
 class CommentPost(models.Model):
+    """
+    Content and likes model
+    """
     content = models.TextField()
     likes = models.ManyToManyField(User, related_name="likes", blank=True)
 
@@ -27,6 +26,9 @@ class CommentPost(models.Model):
 
 
 class Post(models.Model):
+    """
+    Post model
+    """
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="posts"
     )
@@ -76,6 +78,9 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
+    """
+    Comment model
+    """
     post = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name="comments"
     )
