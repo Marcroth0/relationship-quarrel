@@ -1,9 +1,8 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html class="h-100" lang="en">
+<html class="h-100">
   <head>
-    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -69,6 +68,7 @@
                 >About <span class="sr-only">(current)</span></a
               >
             </li>
+
             {% if user.is_authenticated %}
             <li class="nav-item">
               <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
@@ -137,13 +137,12 @@
           </div>
           {% else %}
           <form class="form-inline justify-content-centered">
-            <a
-              href="{% url 'account_login' %}"
-              class="btn btn-custom btn-lg mt-3 shadow text-white"
-              role="button"
-              aria-label="Post"
-              >Login</a
+            <button
+              class="btn btn-md btn-custom my-2 my-sm-0 text-white montserrat"
+              type="button"
             >
+              <a href="{% url 'account_login' %}" class="text-white">Login</a>
+            </button>
           </form>
           {% endif %}
         </div>
@@ -173,13 +172,15 @@
           {% endfor %}
         </div>
       </div>
+
+      <main class="flex-shrink-0 main-bg">
+        {% block content %}
+        <!-- Content Goes here -->
+        {% endblock content %}
+      </main>
+
+      <!-- Footer -->
     </div>
-    {% block content %}
-    <!-- Content Goes here -->
-    {% endblock content %}
-
-    <!-- Footer -->
-
     <footer
       class="
         footer
