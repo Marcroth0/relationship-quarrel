@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Argument solver online">
-    <title>Quarrel app</title>
+    <title>Relationship Quarrel</title>
     
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" type="text/css" />
@@ -44,16 +44,17 @@
                 </li>
                 {% else %}
                 <li class="nav-item">
+                    <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
               </li>
-              <!-- <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-          </li> -->
           {% endif %}
           </ul>
           {% if user.is_authenticated %}
+          <!-- Gets activated if user is authenticated and on a large screen -->
           <div class="dropdown dropleft bigScreen">
-            <a class="btn btn-custom montserrat text-white dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+            <a class="btn btn-custom montserrat text-white dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false" aria-label="Toggle navigation">
               Account
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -61,10 +62,12 @@
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="{% url 'deactivate_user' %}">Deactivate Account</a>
               <a class="dropdown-item" href="{% url 'delete_user' %}">Delete Account</a>
+              <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
             </div>
           </div>
+          <!-- Gets activated if user is authenticated and on a small screen -->
           <div class="dropdown smallScreen">
-            <a class="btn btn-custom text-white dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+            <a class="btn btn-custom text-white dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false" aria-label="Toggle navigation">
               Account
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -72,6 +75,7 @@
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="{% url 'deactivate_user' %}">Deactivate Account</a>
               <a class="dropdown-item" href="{% url 'delete_user' %}">Delete Account</a>
+              <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
             </div>
           </div>
           {% else %}
@@ -118,6 +122,7 @@
         href="https://www.facebook.com/"
         role="button"
         target="_blank"
+        aria-label="Facebook link"
         ><i class="fab fa-facebook-f"></i
       ></a>
 
@@ -127,6 +132,7 @@
         href="https://twitter.com/"
         role="button"
         target="_blank"
+        aria-label="Facebook link"
         ><i class="fab fa-twitter"></i
       ></a>
 
@@ -136,6 +142,7 @@
         href="https://www.merriam-webster.com/dictionary/argument"
         role="button"
         target="_blank"
+        aria-label="Facebook link"
         ><i class="fas fa-book-open"></i></a>
 
       <a
@@ -144,6 +151,7 @@
         href="https://www.instagram.com/"
         role="button"
         target="_blank"
+        aria-label="Facebook link"
         ><i class="fab fa-instagram"></i
       ></a>
   </div>

@@ -14,6 +14,7 @@
       <p>
         <em>We'll just consider this a "See you later"-type-of-situation</em>
       </p>
+      <!-- Deactivation form - deactivates user when clicked -->
       <form action="{% url 'deactivate_user' %}" method="POST" class="padding">
         {% csrf_token %} {{ form.as_p}}
         <button

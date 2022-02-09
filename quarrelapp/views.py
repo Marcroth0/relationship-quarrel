@@ -3,18 +3,8 @@ from django.http import HttpResponseRedirect
 import os
 from django.contrib import messages
 from django.views import generic, View
-from django.conf import settings
-from django.contrib.auth.models import User
 from .models import Post, CommentPost, Comment
 from .forms import CommentForm, PostForm
-from django.core.paginator import Paginator
-
-
-# def index(request):
-#     path = settings.MEDIA_ROOT
-#     img_list = os.listdir(path + '/images')
-#     context = {'images': img_list}
-#     return render(request, "quarrelapp/index.html", context)
 
 
 class PostList(generic.ListView):
@@ -22,13 +12,6 @@ class PostList(generic.ListView):
     queryset = Post.objects.order_by("-date_published")
     template_name = "index.html"
     paginate_by = 6
-
-
-# class PostDetailList(generic.ListView):
-#     model = Post
-#     queryset = Post.objects.order_by("-date_published")
-#     template_name = "post_detail.html"
-#     paginate_by = 1
 
 
 class PostDetail(View):

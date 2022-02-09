@@ -23,6 +23,7 @@
           <strong>you will, too.</strong></em
         >
       </p>
+      <!-- Deletion form - deletes user when clicked -->
       <form action="{% url 'delete_user' %}" method="POST" class="padding">
         {% csrf_token %} {{ form.as_p}}
         <button
