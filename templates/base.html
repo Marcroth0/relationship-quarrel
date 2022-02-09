@@ -2,155 +2,232 @@
 
 <!DOCTYPE html>
 <html class="h-100" lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Argument solver online">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Argument solver online" />
     <title>Relationship Quarrel</title>
-    
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+      crossorigin="anonymous"
+    ></script>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap');
-      </style>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-</head>
+      @import url("https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap");
+    </style>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/style.css' %}"
+    />
+  </head>
 
-<body class="d-flex flex-column h-100 bg-light">
-
-<header>
-    <nav class="navbar navbar-try navbar-expand-lg fixed-top navbar-dark">
+  <body class="d-flex flex-column h-100 bg-light">
+    <header>
+      <nav class="navbar navbar-try navbar-expand-lg fixed-top navbar-dark">
         <a class="navbar-brand display-3" href="{% url 'home' %}">QRL</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
-      
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto pl-3">
-            <li class="nav-item active ">
-              <a class="nav-link" href="{% url 'about' %}">About <span class="sr-only">(current)</span></a>
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'about' %}"
+                >About <span class="sr-only">(current)</span></a
+              >
             </li>
-                {% if user.is_authenticated %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-                </li>
-                {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-              </li>
-          {% endif %}
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+            </li>
+            {% endif %}
           </ul>
           {% if user.is_authenticated %}
           <!-- Gets activated if user is authenticated and on a large screen -->
           <div class="dropdown dropleft bigScreen">
-            <a class="btn btn-custom montserrat text-white dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <a
+              class="btn btn-custom montserrat text-white dropdown-toggle"
+              role="button"
+              id="dropdownMenuLink"
+              data-toggle="dropdown"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
               Account
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
               <a class="dropdown-item" href="{% url 'profile' %}">My Posts</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{% url 'deactivate_user' %}">Deactivate Account</a>
-              <a class="dropdown-item" href="{% url 'delete_user' %}">Delete Account</a>
-              <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
+              <a class="dropdown-item" href="{% url 'deactivate_user' %}"
+                >Deactivate Account</a
+              >
+              <a class="dropdown-item" href="{% url 'delete_user' %}"
+                >Delete Account</a
+              >
+              <a class="dropdown-item" href="{% url 'account_logout' %}"
+                >Logout</a
+              >
             </div>
           </div>
           <!-- Gets activated if user is authenticated and on a small screen -->
           <div class="dropdown smallScreen">
-            <a class="btn btn-custom text-white dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <a
+              class="btn btn-custom text-white dropdown-toggle"
+              role="button"
+              id="dropdownMenuLink"
+              data-toggle="dropdown"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
               Account
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
               <a class="dropdown-item" href="{% url 'profile' %}">My Posts</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{% url 'deactivate_user' %}">Deactivate Account</a>
-              <a class="dropdown-item" href="{% url 'delete_user' %}">Delete Account</a>
-              <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
+              <a class="dropdown-item" href="{% url 'deactivate_user' %}"
+                >Deactivate Account</a
+              >
+              <a class="dropdown-item" href="{% url 'delete_user' %}"
+                >Delete Account</a
+              >
+              <a class="dropdown-item" href="{% url 'account_logout' %}"
+                >Logout</a
+              >
             </div>
           </div>
           {% else %}
           <form class="form-inline justify-content-centered">
-            <button class="btn btn-md btn-custom my-2 my-sm-0 text-white montserrat" type="button"><a href="{% url 'account_login' %}" class="text-white">Login</a></button>
+            <button
+              class="btn btn-md btn-custom my-2 my-sm-0 text-white montserrat"
+              type="button"
+            >
+              <a href="{% url 'account_login' %}" class="text-white">Login</a>
+            </button>
           </form>
           {% endif %}
         </div>
       </nav>
-</header>
+    </header>
 
-  <!-- Messages -->
-  <div class="container">
-    <div class="row mt-5 pt-3">
+    <!-- Messages -->
+    <div class="container">
+      <div class="row mt-5 pt-3">
         <div class="col-md-8 offset-md-2 text-center">
-            {% for message in messages %}
-            <div class="alert {{ message.tags }} alert alert-warning alert-dismissible fade show" id="msg" role="alert">
-                {{ message | safe }}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            {% endfor %}
+          {% for message in messages %}
+          <div
+            class="alert {{ message.tags }} alert alert-warning alert-dismissible fade show"
+            id="msg"
+            role="alert"
+          >
+            {{ message | safe }}
+            <button
+              type="button"
+              class="close"
+              data-dismiss="alert"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          {% endfor %}
         </div>
+      </div>
     </div>
-  </div>
     {% block content %}
     <!-- Content Goes here -->
     {% endblock content %}
 
+    <!-- Footer -->
 
-<!-- Footer -->
+    <footer
+      class="
+        footer
+        mt-5
+        fixed-bottom
+        position-relative
+        footer-custom
+        text-center text-white
+      "
+    >
+      <div class="p-2">
+        <div class="mb-1">
+          <a
+            class="btn btn-light btn-floating shadow m-1"
+            href="https://www.facebook.com/"
+            role="button"
+            target="_blank"
+            aria-label="Facebook link"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
 
-<footer class="footer mt-5 fixed-bottom position-relative footer-custom text-center text-white">
+          <a
+            class="btn btn-light shadow btn-floating m-1"
+            href="https://twitter.com/"
+            role="button"
+            target="_blank"
+            aria-label="Facebook link"
+            ><i class="fab fa-twitter"></i
+          ></a>
 
-  <div class="p-2">
+          <a
+            class="btn btn-light shadow btn-floating m-1"
+            href="https://www.merriam-webster.com/dictionary/argument"
+            role="button"
+            target="_blank"
+            aria-label="Facebook link"
+            ><i class="fas fa-book-open"></i
+          ></a>
 
-    <div class="mb-1">
-      <a
-        class="btn btn-light btn-floating shadow m-1"
-        
-        href="https://www.facebook.com/"
-        role="button"
-        target="_blank"
-        aria-label="Facebook link"
-        ><i class="fab fa-facebook-f"></i
-      ></a>
-
-      <a
-        class="btn btn-light shadow btn-floating m-1"
-        
-        href="https://twitter.com/"
-        role="button"
-        target="_blank"
-        aria-label="Facebook link"
-        ><i class="fab fa-twitter"></i
-      ></a>
-
-      <a
-        class="btn btn-light shadow btn-floating m-1"
-        
-        href="https://www.merriam-webster.com/dictionary/argument"
-        role="button"
-        target="_blank"
-        aria-label="Facebook link"
-        ><i class="fas fa-book-open"></i></a>
-
-      <a
-        class="btn bg-light shadow btn-floating m-1"
-        
-        href="https://www.instagram.com/"
-        role="button"
-        target="_blank"
-        aria-label="Facebook link"
-        ><i class="fab fa-instagram"></i
-      ></a>
-  </div>
-</footer>
-</body>
+          <a
+            class="btn bg-light shadow btn-floating m-1"
+            href="https://www.instagram.com/"
+            role="button"
+            target="_blank"
+            aria-label="Facebook link"
+            ><i class="fab fa-instagram"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

@@ -150,14 +150,13 @@
                 {% else %}
                 <div class="row d-flex justify-content-center">
                   <div class="col-md-5 text-center">
-                    <button
-                      type="submit"
-                      class="btn btn-custom btn-md montserrat"
+                    <a
+                      class="btn btn-custom btn-lg mt-3 shadow text-white"
+                      href="{% url 'account_login' %}"
+                      role="button"
+                      aria-label="Post"
+                      >Login &raquo;</a
                     >
-                      <a class="text-white" href="{% url 'account_login' %}"
-                        >Login &raquo;</a
-                      >
-                    </button>
                     <p>
                       <small class="text-secondary"
                         >Log<span class="gradient-text">in</span> for
