@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html class="h-100">
+<html class="h-100" lang="en">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -70,15 +70,16 @@
             </li>
 
             {% if user.is_authenticated %}
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+            <li>
+              <a class="nav-link active" href="{% url 'user_post' %}"
+                >Post &raquo;</a
+              >
             </li>
             {% else %}
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+              <a class="nav-link active" href="{% url 'account_signup' %}"
+                >Register</a
+              >
             </li>
             {% endif %}
           </ul>
@@ -137,12 +138,13 @@
           </div>
           {% else %}
           <form class="form-inline justify-content-centered">
-            <button
-              class="btn btn-md btn-custom my-2 my-sm-0 text-white montserrat"
-              type="button"
+            <a
+              href="{% url 'account_login' %}"
+              class="btn btn-custom btn-lg shadow text-white"
+              role="button"
+              aria-label="Post"
+              >Login</a
             >
-              <a href="{% url 'account_login' %}" class="text-white">Login</a>
-            </button>
           </form>
           {% endif %}
         </div>
