@@ -173,7 +173,7 @@ I tested the responsiveness of the site on the below units, using chrome dev as 
 
 ### Manual testing
 
-See further on click [here](assets/testing.md)
+See further on click [here](readme-testing.md)
 
 ### Lighthouse
 

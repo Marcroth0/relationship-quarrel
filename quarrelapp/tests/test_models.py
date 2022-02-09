@@ -53,11 +53,3 @@ class PostModelTestCase(TestCase):
         post = get_object_or_404(Post, title="CLEANING")
         post.content_one.likes.add(self.user)
         self.assertEqual(post.content_one.number_of_likes(), 1)
-
-    def test_delete_user(self):
-        user_one = self.customer
-        user_one.delete()
-
-        posts = len(Post.objects.all())
-
-        self.assertEquals(posts, 0)
