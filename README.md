@@ -227,21 +227,33 @@ No known bugs.
 
 ## Technologies used:
 
-Python
-Django
-Cloudinary
-Crispy forms
-Github
-Vscode
-PostgreSQL
-SQlite
-Pep8
-Prettier
-ImgBot
-Google Developer Tools
-Bootstrap
-Git
-AmIResponsive
+- I used [Python](https://www.python.org/) to write my functions and models
+
+- [Django](https://www.djangoproject.com/) is the framework used to build project and its apps
+
+- [Cloudinary](https://cloudinary.com/) has been used to store my images and static files
+
+- [Crispyforms](https://django-crispy-forms.readthedocs.io/en/latest/) has been used to easily display forms
+
+- [Github](https://github.com/) Has been to store and plan project
+
+- [Vscode](https://code.visualstudio.com/) my choice of IDE
+
+- [PostgreSQL](https://www.postgresql.org/) Database
+
+- [SQlite](https://www.sqlite.org/index.html) has been used for local testing
+
+- [Pep8](https://pypi.org/project/autopep8/) has been used for formatting and error-checking python-code
+
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) has been used for formatting and error-checking html-code
+
+- [ImgBot](https://imgbot.net/) - my trustworthy companion for optimizing size of images
+
+- [Google-Developer-Tools](https://developers.google.com/web/tools) - for debugging
+
+- [Bootstrap4](https://getbootstrap.com/) - css library
+
+- [AmIResponsive](http://ami.responsivedesign.is/#) - used to check responsiveness, and collect image you find at the top of page.
 
 ## Improvements
 
@@ -253,12 +265,10 @@ AmIResponsive
 
 ## Deployment
 
-- The site was deployed to GitHub pages. The steps to deploy are as follows:
-  - In the GitHub repository, navigate to the Settings tab
-  - From the source section drop-down menu, select the Master Branch
-  - Once the master branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
+The site was deployed using Heroku, following the steps offered by Codeinstitute. Instructions are found [here](https://codeinstitute.s3.amazonaws.com/fst/Django%20Blog%20Cheat%20Sheet%20v1.pdf)
 
-The live link can be found here - https://marcroth0.github.io/memory-game/
+Using Cloudinary and how to set it up can be read here, as well as in the above document.
+[here](https://devcenter.heroku.com/articles/cloudinary)
 
 ## Credits
 
