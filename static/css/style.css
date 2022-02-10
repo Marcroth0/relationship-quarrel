@@ -19,20 +19,13 @@ h1 {
 p {
   font-family: "Montserrat", sans-serif;
 }
-
-.navbar.navbar-try {
+/* Change color of navbar */
+.navbar.navbar-color {
   background-image: linear-gradient(-90deg, #d38312, #a83279);
 }
 
-.background-tryout {
-  background-image: linear-gradient(-90deg, #d38312, #a83279);
-  color: white;
-  border-radius: 3px;
-  margin-top: 10px;
-  font-family: "Mochiy Pop P One", Montserrat;
-}
-
-.col-12.background-tryout {
+/* Gradient background */
+.background-gradient {
   background-image: linear-gradient(-90deg, #d38312, #a83279);
   color: white;
   border-radius: 3px;
@@ -40,24 +33,37 @@ p {
   font-family: "Mochiy Pop P One", Montserrat;
 }
 
+.col-12.background-gradient {
+  background-image: linear-gradient(-90deg, #d38312, #a83279);
+  color: white;
+  border-radius: 3px;
+  margin-top: 10px;
+  font-family: "Mochiy Pop P One", Montserrat;
+}
+
+/* Easily accessed font */
 .montserrat {
   font-family: "Montserrat", sans-serif;
 }
 
+/* Gradient text */
 .gradient-text {
   background: -webkit-linear-gradient(-60deg, #a83279, #d38312);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+/* Custom footer color */
 .footer.footer-custom {
   background-image: linear-gradient(-90deg, #a83279, #d38312);
 }
 
+/* Custom btn color */
 .btn.btn-custom {
   background-color: #b43782;
 }
 
+/* Custom border-color */
 .border.title-custom {
   background-image: -webkit-gradient(
     linear,
@@ -81,36 +87,36 @@ p {
 .navbar-brand {
   font-family: "Mochiy Pop P One", sans-serif;
 }
-
+/* Heart color one */
 .heart-custom-purple {
   color: #a83279;
   font-size: 1.9em;
   text-shadow: 1px 1px 1px #ccc;
 }
-
-.purple-text {
-  color: #a83279;
-}
-
-.orange-text {
-  color: #d38312;
-}
-
-.icon-size {
-  font-size: 1.9em;
-}
-
+/* Heart color one */
 .heart-custom-orange {
   color: #d38312;
   font-size: 1.9em;
   text-shadow: 1px 1px 1px #ccc;
+}
+/* Custom purple text */
+.purple-text {
+  color: #a83279;
+}
+/* Custom orange text */
+.orange-text {
+  color: #d38312;
+}
+/* Custom icon-size for fontawesome */
+.icon-size {
+  font-size: 1.9em;
 }
 
 .heart-custom-purple:focus {
   outline: none;
   border: white;
 }
-
+/* Solves overflow issue on cards */
 .card-height {
   height: 100%;
 }
