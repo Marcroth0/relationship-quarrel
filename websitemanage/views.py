@@ -89,7 +89,9 @@ class PostDeleteView(DeleteView):
 
 
 class About(TemplateView):
-    """About us page"""
+    """
+    About us page
+    """
     template_name = 'about.html'
 
     def about(self, request):

@@ -216,14 +216,14 @@ W3 HTML Validator:
 ![htmlvalidator](static/images/readme-images/quarrel-htmlvalidator-readme.png)
 
 W3 CSS Validator:
-![cssvalidator]()
+![cssvalidator](static/images/readme-images/quarrel-cssvalidator-readme.png)
 
-Pep8 validator:
-![jsvalidator](assets/images/js-validator-readme.png)
+For Python I've used pep8 validator which resulted in 0 errors on all pages.
 
 ## Unfixed Bugs
 
-No known bugs.
+1. There's a bug where if you type one very, very long word, without spaces, in argument one or two, the post_details overflows.
+2.
 
 ## Technologies used:
 
@@ -254,8 +254,6 @@ No known bugs.
 - [Bootstrap4](https://getbootstrap.com/) - css library
 
 - [AmIResponsive](http://ami.responsivedesign.is/#) - used to check responsiveness, and collect image you find at the top of page.
-
-## Improvements
 
 ## Features Left to Implement
 
