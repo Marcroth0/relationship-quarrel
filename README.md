@@ -60,6 +60,8 @@ Quarrel is a platform where arguments are come to an end. Two people face off in
 
 15. As a User I can delete my comment so that I can write a new one, or if I regret it
 
+View my User Stories and planning [here](https://github.com/Marcroth0/relationship-quarrel/issues).
+
 # UX
 
 ## Strategy
