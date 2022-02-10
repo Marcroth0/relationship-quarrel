@@ -85,23 +85,7 @@ class Comment(models.Model):
         Post, on_delete=models.CASCADE, related_name="comments"
     )
     name = models.CharField(max_length=80)
-    email = models.EmailField()
     body = models.TextField(max_length=120)
-
-    CONTENTONE = "CTONE"
-    CONTENTTWO = "CTTWO"
-    UNDECIDED = "UND"
-
-    QUARREL_CHOICES = [
-        (CONTENTONE, "Left"),
-        (UNDECIDED, "Undecided"),
-        (CONTENTTWO, "Right"),
-    ]
-    quarrel_choice = models.CharField(
-        max_length=14,
-        choices=QUARREL_CHOICES,
-        default=UNDECIDED,
-    )
     date_published = models.DateTimeField(auto_now_add=True)
 
     class Meta:
