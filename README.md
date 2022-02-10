@@ -173,6 +173,14 @@ Font-family: "Mochiy Pop P One", Montserrat;
 
 ##
 
+## CRUD
+
+- The user has the ability to
+  C - reate their own post.
+  R - read their, or others posts and comments.
+  U - update their post
+  D - delete their post and comments, as well as their account.
+
 ## Testing
 
 I tested the responsiveness of the site on the below units, using chrome dev as well as some in real life testing:
