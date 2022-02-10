@@ -113,26 +113,52 @@ A post full screen:
 
 ### End Design Result:
 
+Easily navigated navbar containing a home button, disguised as a logo, an about-page, a registration and a login-button that catches the visitors eye.
+
 Navbar:
 ![navbar](static/images/readme-images/quarrel-navbar-readme.png)
+
+For users that are logged in, the post-button swaps to an account button, containing: My posts, deactivate account, delete account, as well as logout. The register button is replaced with an additional post-button.
 
 Navbar(Logged in):
 ![navbar](static/images/readme-images/quarrel-navbar-logged-readme.png)
 
+Landing page is a cooperation between the hero-image and the Quarrels-section. Instantly the visitor gets questions answered:
+
+1. What the point of the site is
+2. The possibility of being a part of it
+3. How the posts are portrayed on the landing page
+
+These three points together form a need to be included.
+
 Hero:
 ![hero](static/images/readme-images/quarrel-hero-readme.png)
+
+Each title/category is tied too a specific image which automatically gets set when the user creates and posts their argument. Images are chosen to fit the theme of "whimsical"
 
 Quarrels:
 ![quarrels](static/images/readme-images/quarrel-quarrels-readme.png)
 
+A clear visual separation between the two arguments, clearly with two separate colors from the same color-palette, in addition to the reference of "Fighter in left..." and "Fighter in right..."; both with each associated like-button.
+
 Post Detail:
 ![postdetail](static/images/readme-images/quarrel-postdetail-readme.png)
+
+Following the whimsical theme, the about page displays a backstory of the creation of the website where the reader follows a somewhat typical situation every couple, or roommates, are able to relate to. Story is written as such in order to further comically portray arguments.
 
 About page:
 ![about](static/images/readme-images/quarrel-about-readme.png)
 
+Simple, with an easter egg of the book-icon leading the user to webster-dictionary showing the definition of an argument.
+
 Footer:
 ![footer](static/images/readme-images/quarrel-footer-readme.png)
+
+Whimsical writings:
+
+![writingone](static/images/readme-images/quarrel-writing1-readme.png)
+![writingtwo](static/images/readme-images/quarrel-writing2-readme.png)
+![writingthree](static/images/readme-images/quarrel-writing3-readme.png)
 
 ### Color Palette
 
@@ -141,7 +167,7 @@ Colors:
 
 ### Reasoning
 
-The design of the website was crucial. It being a "argument-solver" it needed to be flimsical and not take the initial argument, or the definition of an argument, all that seriously. With the ability of seeing it, instead of an obstacle, as a "funny challenge" to post it to the internet. Hence the sarcastic comments spread around the website. With a comical twist, but on serious subjects, it will hopefully invoke a funny tone in the comments as well as an appearance of the "good side" of the internet which are there to actually help.
+The design of the website was crucial. It being a "argument-solver" it needed to be peculiar and not take the initial argument, or the definition of an argument, all that seriously. With the ability of seeing it, instead of an obstacle, as a "funny challenge" to post it to the internet. Hence the sarcastic comments spread around the website. With a comical twist, on serious subjects, it will hopefully invoke a funny tone in the comments as well as an appearance of the "good side" of the internet which are there to actually help, inbetween a sea of funny anti-comments. (Comments mainly meant to ridicule)
 
 ### Fonts
 
