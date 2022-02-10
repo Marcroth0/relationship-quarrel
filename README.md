@@ -93,6 +93,8 @@ Quarrelapp holds all the databases, consisting of:
 
 Below is a diagram of the correlation between the models:
 
+![database-schema](static/images/readme-images/quarrel-database-schema-readme.png)
+
 ### Planning
 
 I wireframed it using Balsamiq:

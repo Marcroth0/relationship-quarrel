@@ -15,6 +15,7 @@
   </div>
   <div class="form-group">
     <label for="id_description">Description of the argument:</label>
+    <!-- Prepopulates the area of description -->
     <textarea
       name="description"
       class="form-control"
@@ -24,7 +25,6 @@
       rows="2"
       data-np-checked="1"
     >
-    <!-- Prepopulates the area of description -->
 {{ post.description }}</textarea
     >
   </div>
@@ -32,6 +32,7 @@
   <h2>Fighter number one</h2>
   <div class="form-group">
     <label for="id_content_one">Fighter number one, state your case: </label>
+    <!-- Prepopulates the area of content one -->
     <textarea
       class="form-control"
       name="content_one"
@@ -41,7 +42,6 @@
       required
       data-np-checked="1"
     >
-    <!-- Prepopulates the area of content one -->
 {{ post.content_one.content }}</textarea
     >
   </div>
@@ -49,6 +49,7 @@
   <h2>Fighter number two</h2>
   <div class="form-group">
     <label for="id_content_two">Fighter number two, state your case: </label>
+    <!-- Prepopulates the area of content two -->
     <textarea
       class="form-control"
       name="content_two"
@@ -58,7 +59,6 @@
       required
       data-np-checked="1"
     >
-    <!-- Prepopulates the area of content two -->
 {{ post.content_two.content }}</textarea
     >
   </div>
