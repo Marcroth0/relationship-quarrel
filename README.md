@@ -213,7 +213,7 @@ See further on click [here](readme-testing.md)
 
 W3 HTML Validator:
 
-![htmlvalidator](assets/images/html-validator-readme.png)
+![htmlvalidator](static/images/readme-images/quarrel-htmlvalidator-readme.png)
 
 W3 CSS Validator:
 ![cssvalidator]()
@@ -267,11 +267,20 @@ No known bugs.
 
 The site was deployed using Heroku, following the steps offered by Codeinstitute. Instructions are found [here](https://codeinstitute.s3.amazonaws.com/fst/Django%20Blog%20Cheat%20Sheet%20v1.pdf)
 
+Heroku:
+
+1. Create an account with Heroku
+2. Create a new app whilst logged in
+3. Add Buildpacks 'Python' and 'NodeJS'
+4. Connect your GitHub repository via "Connect to GitHub"
+5. Set up your config vars (info in doc above)
+6. Enable either "Automatic Deploys" or do it manually.
+
 Using Cloudinary and how to set it up can be read here, as well as in the above document.
 [here](https://devcenter.heroku.com/articles/cloudinary)
 
 ## Credits
 
-- A general shout-out to [StackOverflow](https://stackoverflow.com/)
-
-## Media
+- A general shout-out to [StackOverflow](https://stackoverflow.com/), which solved a lot of issues.
+- Credit for images used in posts [chikenbugagashenka](https://www.freepik.com/free-vector/boys-girls-kids-aggression-conflict-set_20892288.htm#query=argue&position=11&from_view=search)
+- [dbdiagram](https://dbdiagram.io/) for offering a database-visualiser
