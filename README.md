@@ -2,7 +2,7 @@
 
 ![amiresponsive](static/images/readme-images/quarrel-responsive-readme.png)
 
-Live link:
+Live link: https://quarrel2022.herokuapp.com/
 
 ## About:
 
@@ -10,23 +10,19 @@ Quarrel is a platform where arguments are come to an end. Two people face off in
 
 ### Table of Contents
 
-1. [Goals](#goals)
-   1. [Organisational Goals](#organisation-goals)
-   2. [User Stories](#user-stories)
-2. [Design](#design)
-   1. [Box Shadow](#box-shadow)
-   2. [Color palette day](#color-palette-day)
-   3. [Color palette night](#color-palette-night)
-3. [Planning](#planning)
-   1. [Fonts](#fonts)
-4. [Testing](#testing)
-   1. [Lighthouse](#lighthouse)
+1. [User Stories](#user-stories)
+2. [UX](#ux)
+   1. [Strategy](#strategy)
+   2. [Design/Structure](#design/structure)
+   3. [Databases](#databases)
+   4. [Planning](#planning)
+   5. [End Design](#end-design-result)
+3. [Testing](#testing)
+   1. [Manual Testing](#manual-testing)
    2. [Validator](#validator-testing)
-5. [Credits](#credits)
-
-## Goals
-
-### Organisation Goals
+   3. [Bugs](#unfixed-bugs)
+   4. [Improvements](#improvements)
+4. [Credits](#credits)
 
 ### User Stories
 
@@ -199,7 +195,6 @@ I tested the responsiveness of the site on the below units, using chrome dev as 
 - Chrome
 - Mozilla Firefox
 - Safari
-- Edge
 
 ### Manual testing
 
@@ -207,23 +202,23 @@ See further on click [here](readme-testing.md)
 
 ### Lighthouse
 
-![lighthouse](assets/images/lighthouse-memory-readme.png)
+![lighthouse](static/images/readme-images/quarrel-lighthouse-readme.png)
 
 ### Validator Testing
 
 W3 HTML Validator:
 
-![htmlvalidator](static/images/readme-images/quarrel-htmlvalidator-readme.png)
+![html](static/images/readme-images/quarrel-htmlvalidator-readme.png)
 
 W3 CSS Validator:
-![cssvalidator](static/images/readme-images/quarrel-cssvalidator-readme.png)
+
+![css](static/images/readme-images/quarrel-cssvalidator-readme.png)
 
 For Python I've used pep8 validator which resulted in 0 errors on all pages.
 
 ## Unfixed Bugs
 
 1. There's a bug where if you type one very, very long word, without spaces, in argument one or two, the post_details overflows.
-2.
 
 ## Technologies used:
 
@@ -260,6 +255,14 @@ For Python I've used pep8 validator which resulted in 0 errors on all pages.
 - A reply-to-comments-function.
 - The ability for one person to write their argument, then through a link allow the second one write theirs, when received the post get created and published.
 - Pagination on post_detail for a smoother site experience and a feeling of "just one more"
+- More categories
+- The ability to sort by "Most popular", "Category"
+- Add a "Quarrel of the week"
+- Comments:
+  Users should be able to ask for more information from either of the argumenters.
+  Depending on which argument you've liked, your comment-background should have that color.
+- User should be able to set a timer when the argument is deemed finished. (A day, two, a week)
+- Choose a "fighter"-avatar.
 
 ## Deployment
 
