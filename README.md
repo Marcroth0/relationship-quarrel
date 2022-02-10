@@ -227,6 +227,7 @@ For Python I've used pep8 validator which resulted in 0 errors on all pages.
 ## Unfixed Bugs
 
 1. There's a bug where if you type one very, very long word, without spaces, in argument one or two, the post_details overflows.
+2. CommentPost (content one and two) aren't successfully deleted from DB.
 
 ## Technologies used:
 
