@@ -73,8 +73,8 @@
         />
         {% endif %}
         <div class="card-body">
-          <a href="{% url 'post_detail' post.slug %}" class="post-link">
-            <h5 class="card-title link-dark">{{ post.title }}</h5>
+          <a href="{% url 'post_detail' post.slug %}" class="text-decoration-none text-reset post-link">
+            <h5 class="gradient-text card-title font-weight-bold">{{ post.title }}</h5>
             <h6 class="card-subtitle mb-2 text-muted">
               <!-- posts date post published -->
               {{ post.date_published}}
@@ -83,7 +83,8 @@
           <hr />
 
           <p class="card-text mr-2 ml-2">{{ post.description }}</p>
-          <div class="row d-flex text-center align-bottom">
+        </div>
+          <div class="row d-flex card-footer text-center align-bottom">
             <div class="col-sm">
               <span class="text-secondary"
                 ><i class="fas fa-heart heart-custom-purple"></i
@@ -93,19 +94,16 @@
                 {{ post.content_one.number_of_likes }}
               </span>
             </div>
-            <div class="card-footer">
-              <div class="col-sm">
-                <span class="text-secondary"
-                  ><i class="fas fa-heart heart-custom-orange"></i
-                ></span>
-                <span class="text-secondary">
-                  <!-- Posts content two likes -->
-                  {{ post.content_two.number_of_likes }}
-                </span>
-              </div>
+            <div class="col-sm">
+              <span class="text-secondary"
+                ><i class="fas fa-heart heart-custom-orange"></i
+              ></span>
+              <span class="text-secondary">
+                <!-- Posts content two likes -->
+                {{ post.content_two.number_of_likes }}
+              </span>
             </div>
           </div>
-        </div>
       </div>
     </div>
     {% endfor %}
